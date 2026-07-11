@@ -34,10 +34,40 @@ vision and gathers early community feedback.
 Plain, dependency-free **HTML / CSS / JavaScript** — no build step, no framework.
 
 ```
-index.html    # page structure & content
-styles.css    # design system & layout
-script.js     # nav, scroll reveals, topic generator, waitlist form
+index.html            # landing page
+styles.css            # design system & landing layout
+script.js             # nav, scroll reveals, topic generator, waitlist form
+
+profiles.html         # 👤 Member Directory (hub #1)
+create-profile.html   # profile creation form
+profiles.js           # directory + form logic (reads/writes the sheet)
+profiles.css          # hub styling
+config.js             # paste your Apps Script Web App URL here
+apps-script/Code.gs   # Google Sheets backend (deploy on your sheet)
 ```
+
+## 👤 Member Profiles hub — Google Sheets backend
+
+Hub #1 is live. It uses a **Google Sheet as its datastore** via a **Google Apps Script
+Web App** — no server or paid database required, and it works from GitHub Pages.
+
+**One-time setup:**
+
+1. Open your Google Sheet → **Extensions → Apps Script**.
+2. Delete any code, paste all of [`apps-script/Code.gs`](apps-script/Code.gs), and Save.
+3. **Deploy → New deployment → Web app**
+   - *Execute as:* **Me**
+   - *Who has access:* **Anyone**
+4. Copy the **Web app URL** (ends in `/exec`).
+5. Paste it into [`config.js`](config.js) as `PROFILES_API`, commit, and push.
+
+That's it — the `Profiles` tab and its headers are created automatically on first use.
+Until `config.js` is set, the directory shows sample profiles and the form runs in demo
+mode (nothing is saved).
+
+**How it works:** the directory **reads** profiles via JSONP (bypasses CORS), and the form
+**writes** new profiles by POSTing to the same endpoint. A hidden honeypot field filters
+basic spam bots.
 
 ## Run locally
 
@@ -56,6 +86,11 @@ python3 -m http.server 8000
 
 ## Roadmap
 
-The landing site is step one. Future steps (per the vision doc) include member accounts,
-the searchable directories, mentor/funding matching, the community calendar, and the
-AI agents. Contributions and feedback welcome — **the door is open. Let's build this together.**
+- [x] Landing site presenting the vision
+- [x] **👤 Member Profiles** — directory + create form, Google Sheets backend
+- [ ] 🏢 Business Directory
+- [ ] 🛍️ Products & Services Marketplace
+- [ ] 💼 Jobs & Opportunities
+- [ ] 🤝 Mentor Network · 🆘 Help board · 💰 Funding Hub · 📅 Calendar · 🤖 AI agents
+
+Contributions and feedback welcome — **the door is open. Let's build this together.**
