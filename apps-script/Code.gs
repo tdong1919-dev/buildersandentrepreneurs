@@ -47,6 +47,14 @@ var ENTITIES = {
       'image', 'demo', 'website', 'email'
     ],
     required: ['name', 'email']
+  },
+  job: {
+    sheetName: 'Jobs',
+    headers: [
+      'id', 'timestamp', 'title', 'company', 'type', 'location', 'remote',
+      'compensation', 'description', 'applyLink', 'email'
+    ],
+    required: ['title', 'email']
   }
 };
 

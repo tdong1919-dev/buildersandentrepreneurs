@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>List a product or service — Founders &amp; Builders</title>
-  <meta name="description" content="List your product or service in the Founders & Builders marketplace." />
+  <title>Post a job — Founders &amp; Builders</title>
+  <meta name="description" content="Post a job, contract, freelance, or co-founder opportunity to the Founders & Builders community." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -25,9 +25,8 @@
         <a href="business.html">Businesses</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="jobs.html">Jobs</a>
-        <a href="index.html#book">The Book</a>
       </nav>
-      <a href="marketplace.html" class="btn btn--sm btn--ghost">View marketplace</a>
+      <a href="jobs.html" class="btn btn--sm btn--ghost">View jobs</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -37,18 +36,18 @@
   <main>
     <section class="hub-head">
       <div class="container narrow">
-        <a class="back-link" href="marketplace.html">← Back to marketplace</a>
-        <span class="kicker">🛍️ Marketplace Listing</span>
-        <h1 class="hub-head__title">List a product or service.</h1>
+        <a class="back-link" href="jobs.html">← Back to jobs</a>
+        <span class="kicker">💼 Job Posting</span>
+        <h1 class="hub-head__title">Post a job or opportunity.</h1>
         <p class="hub-head__sub">
-          Show the community what you're offering. Only the name and contact email are
-          required — add pricing, images, and a demo link if you have them.
+          Full-time, contract, freelance, co-founder — whatever you're looking for. Only
+          the title and contact email are required.
         </p>
       </div>
     </section>
 
     <section class="container narrow">
-      <form class="profile-form" id="listingForm" novalidate>
+      <form class="profile-form" id="jobForm" novalidate>
         <!-- Honeypot (hidden from humans) -->
         <div class="hp" aria-hidden="true">
           <label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
@@ -58,63 +57,63 @@
           <legend>The basics</legend>
           <div class="field-grid">
             <label class="field">
-              <span class="field__label">Product / service name <em>*</em></span>
-              <input type="text" name="name" required />
+              <span class="field__label">Job title <em>*</em></span>
+              <input type="text" name="title" required placeholder="e.g. Founding Engineer" />
             </label>
             <label class="field">
               <span class="field__label">Contact email <em>*</em></span>
               <input type="email" name="email" required autocomplete="email" />
             </label>
             <label class="field">
-              <span class="field__label">Category</span>
-              <select name="category">
+              <span class="field__label">Company / organization</span>
+              <input type="text" name="company" autocomplete="organization" />
+            </label>
+            <label class="field">
+              <span class="field__label">Type</span>
+              <select name="type">
                 <option value="">Select…</option>
-                <option>Software</option>
-                <option>SaaS</option>
-                <option>AI tools</option>
-                <option>Marketing services</option>
-                <option>Consulting</option>
-                <option>Graphic design</option>
-                <option>Web development</option>
-                <option>Manufacturing</option>
-                <option>Coaching</option>
-                <option>Courses</option>
-                <option>Templates</option>
-                <option>Books</option>
-                <option>Physical products</option>
+                <option>Full-time</option>
+                <option>Part-time</option>
+                <option>Contract</option>
+                <option>Freelance</option>
+                <option>Internship</option>
+                <option>Volunteer</option>
+                <option>Fractional</option>
+                <option>Apprenticeship</option>
+                <option>Co-founder</option>
+                <option>Advisory board</option>
               </select>
             </label>
             <label class="field">
-              <span class="field__label">Pricing</span>
-              <input type="text" name="pricing" placeholder="e.g. $49/mo, Free, Custom quote" />
+              <span class="field__label">Location</span>
+              <input type="text" name="location" placeholder="City, State" />
             </label>
-            <label class="field field--full">
-              <span class="field__label">Description</span>
-              <textarea name="description" rows="3" placeholder="What is it, and who is it for?"></textarea>
+            <label class="field">
+              <span class="field__label">Compensation</span>
+              <input type="text" name="compensation" placeholder="e.g. $90–110k, Equity, Unpaid" />
             </label>
           </div>
         </fieldset>
 
         <fieldset class="fieldset">
-          <legend>Media &amp; links</legend>
+          <legend>Details</legend>
           <div class="field-grid">
             <label class="field field--full">
-              <span class="field__label">Image URL</span>
-              <input type="url" name="image" placeholder="https://… (product photo or screenshot)" />
+              <span class="field__label">Description</span>
+              <textarea name="description" rows="4" placeholder="Role, responsibilities, what you're looking for"></textarea>
             </label>
-            <label class="field">
-              <span class="field__label">Demo link</span>
-              <input type="url" name="demo" placeholder="https://" />
+            <label class="field field--full">
+              <span class="field__label">Apply link</span>
+              <input type="url" name="applyLink" placeholder="https:// (optional — a job posting, form, or site)" />
             </label>
-            <label class="field">
-              <span class="field__label">Website</span>
-              <input type="url" name="website" placeholder="https://" />
+            <label class="toggle" style="margin-top:4px">
+              <input type="checkbox" name="remote" value="Yes" /> <span>🌎 Remote-friendly</span>
             </label>
           </div>
         </fieldset>
 
         <div class="form-footer">
-          <button type="submit" class="btn btn--lg" id="submitBtn">Publish listing</button>
+          <button type="submit" class="btn btn--lg" id="submitBtn">Publish opportunity</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </div>
       </form>
@@ -133,6 +132,6 @@
 
   <script src="config.js"></script>
   <script src="script.js"></script>
-  <script src="marketplace.js"></script>
+  <script src="jobs.js"></script>
 </body>
 </html>

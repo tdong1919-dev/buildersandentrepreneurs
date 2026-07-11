@@ -50,6 +50,10 @@ marketplace.html      # 🛍️ Marketplace (hub #3)
 add-listing.html      # product/service listing form
 marketplace.js        # directory + form logic (reads/writes the sheet)
 
+jobs.html              # 💼 Jobs & Opportunities (hub #4)
+add-job.html           # job/opportunity posting form
+jobs.js                # directory + form logic (reads/writes the sheet)
+
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
@@ -105,7 +109,7 @@ python3 -m http.server 8000
 - [x] **👤 Member Profiles** — directory + create form, Google Sheets backend
 - [x] **🏢 Business Directory** — directory + listing form, Google Sheets backend
 - [x] **🛍️ Products & Services Marketplace** — listings + "book a consultation", Google Sheets backend
-- [ ] 💼 Jobs & Opportunities
+- [x] **💼 Jobs & Opportunities** — job board with apply/contact CTAs, Google Sheets backend
 - [ ] 🤝 Mentor Network · 🆘 Help board · 💰 Funding Hub · 📅 Calendar · 🤖 AI agents
 
 Contributions and feedback welcome — **the door is open. Let's build this together.**
