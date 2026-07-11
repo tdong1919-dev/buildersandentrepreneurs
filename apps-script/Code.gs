@@ -1,6 +1,9 @@
 /**
- * Founders & Builders — Member Profiles backend
+ * Founders & Builders — platform backend
  * Google Apps Script Web App that uses a Google Sheet as the datastore.
+ * One deployment serves every hub (Profiles, Businesses, …), routed by
+ * a `type` query/body param. Omitting `type` defaults to "profile" so
+ * existing calls from the Member Profiles hub keep working unchanged.
  *
  * SETUP (one time):
  *   1. Open your Google Sheet.
@@ -9,45 +12,65 @@
  *        - Execute as: Me
  *        - Who has access: Anyone
  *   4. Copy the Web app URL (ends in /exec).
- *   5. Paste that URL into config.js as PROFILES_API.
+ *   5. Paste that URL into config.js (used by every hub).
  *
- * The "Profiles" tab and its header row are created automatically on first use.
+ * Each sheet tab and its header row are created automatically on first use.
  * To re-deploy after editing: Deploy → Manage deployments → Edit → Version: New.
+ * (Existing deployment URLs stay the same after a new version.)
  */
 
-var SHEET_NAME = 'Profiles';
-
-// Column order stored in the sheet. Add new fields at the END to stay compatible.
-var HEADERS = [
-  'id', 'timestamp', 'name', 'building', 'business', 'stage', 'products',
-  'skills', 'industry', 'location', 'email', 'website', 'linkedin', 'github',
-  'x', 'portfolio', 'bio', 'goals', 'lookingFor', 'canHelp',
-  'mentor', 'investor', 'podcast', 'speaker', 'volunteer'
-];
-
-function getSheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
+// type -> { sheet name, column order, fields required to accept a submission }
+var ENTITIES = {
+  profile: {
+    sheetName: 'Profiles',
+    headers: [
+      'id', 'timestamp', 'name', 'building', 'business', 'stage', 'products',
+      'skills', 'industry', 'location', 'email', 'website', 'linkedin', 'github',
+      'x', 'portfolio', 'bio', 'goals', 'lookingFor', 'canHelp',
+      'mentor', 'investor', 'podcast', 'speaker', 'volunteer'
+    ],
+    required: ['name', 'email']
+  },
+  business: {
+    sheetName: 'Businesses',
+    headers: [
+      'id', 'timestamp', 'name', 'category', 'logo', 'description', 'website',
+      'industry', 'team', 'products', 'services', 'hiring', 'email',
+      'linkedin', 'x', 'instagram'
+    ],
+    required: ['name', 'email']
   }
-  // Ensure header row exists / is current.
-  var firstRow = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0];
+};
+
+function entityFor_(type) {
+  var entity = ENTITIES[type || 'profile'];
+  if (!entity) throw new Error('Unknown type: ' + type);
+  return entity;
+}
+
+function getSheet_(entity) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(entity.sheetName);
+  if (!sheet) {
+    sheet = ss.insertSheet(entity.sheetName);
+  }
+  var firstRow = sheet.getRange(1, 1, 1, entity.headers.length).getValues()[0];
   if (firstRow.join('') === '' || firstRow[0] !== 'id') {
-    sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+    sheet.getRange(1, 1, 1, entity.headers.length).setValues([entity.headers]);
     sheet.setFrozenRows(1);
   }
   return sheet;
 }
 
-/** Read: returns all profiles as JSON (supports ?callback= for JSONP). */
+/** Read: returns all records for the requested type as JSON (supports ?callback= for JSONP). */
 function doGet(e) {
   var out;
   try {
-    var sheet = getSheet_();
+    var entity = entityFor_(e && e.parameter && e.parameter.type);
+    var sheet = getSheet_(entity);
     var values = sheet.getDataRange().getValues();
-    var header = values.shift() || HEADERS;
-    var profiles = values
+    var header = values.shift() || entity.headers;
+    var records = values
       .filter(function (row) { return String(row[0]).length > 0; })
       .map(function (row) {
         var obj = {};
@@ -55,14 +78,14 @@ function doGet(e) {
         return obj;
       })
       .reverse(); // newest first
-    out = { ok: true, count: profiles.length, profiles: profiles };
+    out = { ok: true, count: records.length, profiles: records, records: records };
   } catch (err) {
     out = { ok: false, error: String(err) };
   }
   return respond_(out, e);
 }
 
-/** Write: appends a new profile row. */
+/** Write: appends a new record row for the requested type. */
 function doPost(e) {
   var out;
   try {
@@ -73,29 +96,27 @@ function doPost(e) {
       data = e.parameter;
     }
 
+    var type = data.type || (e && e.parameter && e.parameter.type);
+    var entity = entityFor_(type);
+
     // Honeypot: bots fill hidden fields. Silently accept, don't store.
     if (data.company_website) {
       return respond_({ ok: true }, e);
     }
 
-    if (!data.name || !data.email) {
-      return respond_({ ok: false, error: 'Name and email are required.' }, e);
+    var missing = entity.required.filter(function (key) { return !data[key]; });
+    if (missing.length) {
+      return respond_({ ok: false, error: 'Required: ' + missing.join(', ') }, e);
     }
 
-    var sheet = getSheet_();
+    var sheet = getSheet_(entity);
     var id = Utilities.getUuid().slice(0, 8);
     var now = new Date().toISOString();
-    var record = {
-      id: id, timestamp: now, name: data.name, building: data.building,
-      business: data.business, stage: data.stage, products: data.products,
-      skills: data.skills, industry: data.industry, location: data.location,
-      email: data.email, website: data.website, linkedin: data.linkedin,
-      github: data.github, x: data.x, portfolio: data.portfolio, bio: data.bio,
-      goals: data.goals, lookingFor: data.lookingFor, canHelp: data.canHelp,
-      mentor: data.mentor, investor: data.investor, podcast: data.podcast,
-      speaker: data.speaker, volunteer: data.volunteer
-    };
-    var row = HEADERS.map(function (key) { return record[key] || ''; });
+    var row = entity.headers.map(function (key) {
+      if (key === 'id') return id;
+      if (key === 'timestamp') return now;
+      return data[key] || '';
+    });
     sheet.appendRow(row);
 
     out = { ok: true, id: id };

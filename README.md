@@ -41,15 +41,22 @@ script.js             # nav, scroll reveals, topic generator, waitlist form
 profiles.html         # 👤 Member Directory (hub #1)
 create-profile.html   # profile creation form
 profiles.js           # directory + form logic (reads/writes the sheet)
-profiles.css          # hub styling
-config.js             # paste your Apps Script Web App URL here
-apps-script/Code.gs   # Google Sheets backend (deploy on your sheet)
+
+business.html         # 🏢 Business Directory (hub #2)
+add-business.html     # business listing form
+business.js           # directory + form logic (reads/writes the sheet)
+
+profiles.css          # shared hub styling (cards, modal, forms, toolbar)
+config.js             # paste your Apps Script Web App URL here (shared by all hubs)
+apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
 ```
 
-## 👤 Member Profiles hub — Google Sheets backend
+## Google Sheets backend
 
-Hub #1 is live. It uses a **Google Sheet as its datastore** via a **Google Apps Script
-Web App** — no server or paid database required, and it works from GitHub Pages.
+Every hub uses the **same Google Sheet** as its datastore via **one Google Apps Script
+Web App** — no server or paid database required, and it works from GitHub Pages. Each hub
+gets its own tab (`Profiles`, `Businesses`, …), routed by a `type` param, so you only
+deploy once no matter how many hubs get added.
 
 **One-time setup:**
 
@@ -61,13 +68,17 @@ Web App** — no server or paid database required, and it works from GitHub Page
 4. Copy the **Web app URL** (ends in `/exec`).
 5. Paste it into [`config.js`](config.js) as `PROFILES_API`, commit, and push.
 
-That's it — the `Profiles` tab and its headers are created automatically on first use.
-Until `config.js` is set, the directory shows sample profiles and the form runs in demo
-mode (nothing is saved).
+**When `apps-script/Code.gs` changes** (e.g. a new hub is added), update the existing
+deployment rather than creating a new one — the URL in `config.js` stays valid:
+**Deploy → Manage deployments → Edit (pencil) → Version: New → Deploy**.
 
-**How it works:** the directory **reads** profiles via JSONP (bypasses CORS), and the form
-**writes** new profiles by POSTing to the same endpoint. A hidden honeypot field filters
-basic spam bots.
+Each sheet tab and its headers are created automatically on first use. Until
+`config.js` is set, every hub shows sample data and forms run in demo mode (nothing is
+saved).
+
+**How it works:** each directory **reads** via JSONP (bypasses CORS, `?type=<hub>`), and
+each form **writes** by POSTing `{ type: "<hub>", ... }` to the same endpoint. A hidden
+honeypot field on every form filters basic spam bots.
 
 ## Run locally
 
@@ -88,7 +99,7 @@ python3 -m http.server 8000
 
 - [x] Landing site presenting the vision
 - [x] **👤 Member Profiles** — directory + create form, Google Sheets backend
-- [ ] 🏢 Business Directory
+- [x] **🏢 Business Directory** — directory + listing form, Google Sheets backend
 - [ ] 🛍️ Products & Services Marketplace
 - [ ] 💼 Jobs & Opportunities
 - [ ] 🤝 Mentor Network · 🆘 Help board · 💰 Funding Hub · 📅 Calendar · 🤖 AI agents

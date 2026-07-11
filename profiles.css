@@ -30,6 +30,13 @@
 .chip:hover { color: var(--text); border-color: var(--border-2); }
 .chip.is-active { color: #fff; background: var(--grad); border-color: transparent; }
 
+.select-filter {
+  font-family: var(--font); font-size: 14px; color: var(--text); cursor: pointer;
+  padding: 9px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border);
+  outline: none; transition: border-color .16s ease;
+}
+.select-filter:focus, .select-filter:hover { border-color: var(--border-2); }
+
 .results-meta { color: var(--muted); font-size: 14px; margin: 8px 2px 22px; }
 
 /* ---------- profile grid ---------- */
