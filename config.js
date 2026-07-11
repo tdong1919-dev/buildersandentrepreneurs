@@ -8,5 +8,5 @@
  * the create form runs in demo mode (nothing is saved to the sheet).
  */
 window.FB_CONFIG = {
-  PROFILES_API: "https://script.google.com/macros/s/AKfycbxvpDIPHwwK4o_nXuOl5ucQF3p2vaM4deYrpaDlMJ3Xt9nkkGKwNbA-VYroh6w6UWichQ/exec"
+  PROFILES_API: "https://script.google.com/macros/s/AKfycbxkUEG4blNbl-wXjj7FG7HTECMRvJv8zuAMCnGKIS_RIxhh9fVtb-Azo103LteFX0xXOA/exec"
 };
