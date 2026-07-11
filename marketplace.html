@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Directory — Founders &amp; Builders</title>
-  <meta name="description" content="Discover startups, agencies, nonprofits, freelancers, and service providers in the Founders & Builders community. Find who's hiring and who to work with." />
+  <title>Marketplace — Founders &amp; Builders</title>
+  <meta name="description" content="Products and services from the Founders & Builders community — software, design, consulting, courses, and more. Support fellow builders." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -22,11 +22,11 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="index.html#features">Platform</a>
         <a href="profiles.html">Members</a>
-        <a href="business.html" aria-current="page">Businesses</a>
-        <a href="marketplace.html">Marketplace</a>
+        <a href="business.html">Businesses</a>
+        <a href="marketplace.html" aria-current="page">Marketplace</a>
         <a href="index.html#book">The Book</a>
       </nav>
-      <a href="add-business.html" class="btn btn--sm">List your business</a>
+      <a href="add-listing.html" class="btn btn--sm">List a product</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -37,11 +37,11 @@
     <section class="hub-head">
       <div class="container">
         <a class="back-link" href="index.html">← Back to home</a>
-        <span class="kicker">🏢 Business Directory</span>
-        <h1 class="hub-head__title">Discover what's being built.</h1>
+        <span class="kicker">🛍️ Marketplace</span>
+        <h1 class="hub-head__title">Products &amp; services, built by builders.</h1>
         <p class="hub-head__sub">
-          Startups, small businesses, agencies, nonprofits, freelancers, and service
-          providers — search the directory to find who's hiring and who to work with.
+          Software, design, consulting, courses, templates, and more — from members of the
+          community. Support each other's work.
         </p>
       </div>
     </section>
@@ -50,42 +50,46 @@
       <div class="toolbar">
         <div class="search">
           <span class="search__icon">🔍</span>
-          <input type="search" id="searchInput" placeholder="Search by name, industry, product, or service…" aria-label="Search businesses" />
+          <input type="search" id="searchInput" placeholder="Search products, services, or categories…" aria-label="Search the marketplace" />
         </div>
         <div class="filters">
           <select id="categorySelect" class="select-filter" aria-label="Filter by category">
             <option value="">All categories</option>
-            <option>Startup</option>
-            <option>Small business</option>
-            <option>Agency</option>
-            <option>Nonprofit</option>
-            <option>Freelancer</option>
-            <option>Service provider</option>
-            <option>Product</option>
             <option>Software</option>
-            <option>Physical product</option>
+            <option>SaaS</option>
+            <option>AI tools</option>
+            <option>Marketing services</option>
+            <option>Consulting</option>
+            <option>Graphic design</option>
+            <option>Web development</option>
+            <option>Manufacturing</option>
+            <option>Coaching</option>
+            <option>Courses</option>
+            <option>Templates</option>
+            <option>Books</option>
+            <option>Physical products</option>
           </select>
-          <button class="chip" id="hiringChip" data-filter="hiring">🟢 Hiring now</button>
+          <button class="chip" id="demoChip" data-filter="demo">🎥 Has a demo</button>
         </div>
       </div>
 
       <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
 
       <div class="profile-grid" id="profileGrid">
-        <!-- cards injected by business.js -->
+        <!-- cards injected by marketplace.js -->
       </div>
 
       <div class="empty" id="emptyState" hidden>
-        <p>No businesses match that search yet.</p>
-        <a href="add-business.html" class="btn">Be the first — list your business</a>
+        <p>Nothing matches that search yet.</p>
+        <a href="add-listing.html" class="btn">Be the first — list a product or service</a>
       </div>
     </section>
 
     <section class="hub-cta">
       <div class="container narrow center">
-        <h2 class="section__title">Building something?</h2>
-        <p class="lead">List your business so the community can find, hire, and support you.</p>
-        <a href="add-business.html" class="btn btn--lg">List your business</a>
+        <h2 class="section__title">Selling something?</h2>
+        <p class="lead">List your product or service so the community can find and support you.</p>
+        <a href="add-listing.html" class="btn btn--lg">List a product or service</a>
       </div>
     </section>
   </main>
@@ -100,7 +104,7 @@
     </div>
   </footer>
 
-  <!-- Business detail modal -->
+  <!-- Listing detail modal -->
   <div class="modal" id="profileModal" hidden>
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalName">
@@ -111,6 +115,6 @@
 
   <script src="config.js"></script>
   <script src="script.js"></script>
-  <script src="business.js"></script>
+  <script src="marketplace.js"></script>
 </body>
 </html>

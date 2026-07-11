@@ -39,6 +39,14 @@ var ENTITIES = {
       'linkedin', 'x', 'instagram'
     ],
     required: ['name', 'email']
+  },
+  listing: {
+    sheetName: 'Listings',
+    headers: [
+      'id', 'timestamp', 'name', 'category', 'description', 'pricing',
+      'image', 'demo', 'website', 'email'
+    ],
+    required: ['name', 'email']
   }
 };
 

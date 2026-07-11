@@ -58,6 +58,8 @@
 .pcard__building { color: var(--text); font-size: 14.5px; margin: 0; opacity: .92; }
 .pcard__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 4px; }
 .pcard__loc { color: var(--muted); font-size: 12.5px; }
+.pcard__price { font-family: var(--display); font-weight: 600; color: var(--brand-2); font-size: 13.5px; }
+.pcard__img { width: 100%; height: 140px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); }
 
 .tags { display: flex; flex-wrap: wrap; gap: 7px; }
 .tag { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(124,92,255,0.12); border: 1px solid rgba(124,92,255,0.22); color: #c9bcff; }
@@ -100,6 +102,8 @@
   transition: color .15s ease, background .15s ease;
 }
 .modal__close:hover { color: var(--text); background: var(--border); }
+.modal__img { width: 100%; height: 220px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border); margin-bottom: 20px; }
+.modal__price { color: var(--brand-2); font-weight: 600; }
 .modal__head { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 18px; padding-right: 30px; }
 .modal__name { font-family: var(--display); font-size: 24px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .modal__biz { color: var(--muted); font-size: 14.5px; margin: 4px 0 0; }

@@ -46,6 +46,10 @@ business.html         # 🏢 Business Directory (hub #2)
 add-business.html     # business listing form
 business.js           # directory + form logic (reads/writes the sheet)
 
+marketplace.html      # 🛍️ Marketplace (hub #3)
+add-listing.html      # product/service listing form
+marketplace.js        # directory + form logic (reads/writes the sheet)
+
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
@@ -100,7 +104,7 @@ python3 -m http.server 8000
 - [x] Landing site presenting the vision
 - [x] **👤 Member Profiles** — directory + create form, Google Sheets backend
 - [x] **🏢 Business Directory** — directory + listing form, Google Sheets backend
-- [ ] 🛍️ Products & Services Marketplace
+- [x] **🛍️ Products & Services Marketplace** — listings + "book a consultation", Google Sheets backend
 - [ ] 💼 Jobs & Opportunities
 - [ ] 🤝 Mentor Network · 🆘 Help board · 💰 Funding Hub · 📅 Calendar · 🤖 AI agents
 
