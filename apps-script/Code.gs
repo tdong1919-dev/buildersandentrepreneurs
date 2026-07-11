@@ -51,7 +51,7 @@ var ENTITIES = {
   job: {
     sheetName: 'Jobs',
     headers: [
-      'id', 'timestamp', 'title', 'company', 'type', 'location', 'remote',
+      'id', 'timestamp', 'title', 'company', 'category', 'location', 'remote',
       'compensation', 'description', 'applyLink', 'email'
     ],
     required: ['title', 'email']

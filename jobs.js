@@ -29,19 +29,19 @@
   /* ---------- sample data (used when no backend is configured) ---------- */
   var SAMPLE = [
     {
-      id: "jdemo1", title: "Founding Engineer", company: "Tinkerlab", type: "Full-time",
+      id: "jdemo1", title: "Founding Engineer", company: "Tinkerlab", category: "Full-time",
       location: "Boise, ID", remote: "Yes", compensation: "$110–140k + equity",
       description: "Join as the first engineering hire to build our AI copilot product.",
       applyLink: "example.com/apply", email: "jobs@tinkerlab.example"
     },
     {
-      id: "jdemo2", title: "Fractional CMO", company: "Craftly", type: "Fractional",
+      id: "jdemo2", title: "Fractional CMO", company: "Craftly", category: "Fractional",
       location: "Remote", remote: "Yes", compensation: "$3k/mo, 10hrs/wk",
       description: "Help a Series-seed marketplace startup build out growth marketing.",
       email: "hello@craftly.example"
     },
     {
-      id: "jdemo3", title: "Technical Co-founder", company: "Stealth", type: "Co-founder",
+      id: "jdemo3", title: "Technical Co-founder", company: "Stealth", category: "Co-founder",
       location: "Atlanta, GA", remote: "", compensation: "Equity",
       description: "Non-technical founder with domain expertise in fintech seeking a CTO.",
       email: "founder@stealth.example"
@@ -103,10 +103,10 @@
     function matches(j) {
       if (remoteOnly && !truthy(j.remote)) return false;
       var cat = categorySelect && categorySelect.value;
-      if (cat && j.type !== cat) return false;
+      if (cat && j.category !== cat) return false;
       var q = (searchInput && searchInput.value || "").trim().toLowerCase();
       if (!q) return true;
-      var hay = [j.title, j.company, j.location, j.type, j.description].join(" ").toLowerCase();
+      var hay = [j.title, j.company, j.location, j.category, j.description].join(" ").toLowerCase();
       return hay.indexOf(q) !== -1;
     }
 
@@ -138,7 +138,7 @@
 
   function badges(j) {
     var out = "";
-    if (j.type) out += '<span class="badge">' + esc(j.type) + "</span>";
+    if (j.category) out += '<span class="badge">' + esc(j.category) + "</span>";
     if (truthy(j.remote)) out += '<span class="badge badge--mentor">🌎 Remote</span>';
     return out;
   }
