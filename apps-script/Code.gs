@@ -72,6 +72,23 @@ var ENTITIES = {
       'description', 'email', 'linkedin'
     ],
     required: ['title', 'email']
+  },
+  raise: {
+    sheetName: 'Raises',
+    headers: [
+      'id', 'timestamp', 'company', 'founder', 'stage', 'industry',
+      'amountSeeking', 'raisedSoFar', 'useOfFunds', 'description', 'email',
+      'website', 'linkedin'
+    ],
+    required: ['company', 'email']
+  },
+  investor: {
+    sheetName: 'Investors',
+    headers: [
+      'id', 'timestamp', 'name', 'firm', 'type', 'checkSize', 'stages',
+      'industries', 'thesis', 'email', 'website', 'linkedin'
+    ],
+    required: ['name', 'email']
   }
 };
 
