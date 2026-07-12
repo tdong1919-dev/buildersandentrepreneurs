@@ -97,6 +97,14 @@ var ENTITIES = {
       'location', 'description', 'rsvpLink', 'email'
     ],
     required: ['title', 'email']
+  },
+  collab: {
+    sheetName: 'Collabs',
+    headers: [
+      'id', 'timestamp', 'title', 'name', 'category', 'format', 'city',
+      'description', 'email', 'linkedin'
+    ],
+    required: ['title', 'email']
   }
 };
 
