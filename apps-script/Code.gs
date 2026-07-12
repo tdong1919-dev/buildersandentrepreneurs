@@ -113,6 +113,14 @@ var ENTITIES = {
       'city', 'description', 'listenLink', 'email', 'linkedin'
     ],
     required: ['showName', 'email']
+  },
+  resource: {
+    sheetName: 'Resources',
+    headers: [
+      'id', 'timestamp', 'title', 'category', 'description', 'link',
+      'submittedBy', 'email'
+    ],
+    required: ['title', 'link']
   }
 };
 

@@ -79,6 +79,10 @@ podcasts.html          # 🎙️ Podcast Hub (hub #10)
 add-podcast.html       # podcast listing form
 podcasts.js            # directory + form logic (reads/writes the sheet)
 
+resources.html         # 📚 Resource Library (hub #11)
+add-resource.html      # resource submission form
+resources.js           # directory + form logic (reads/writes the sheet)
+
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
@@ -141,6 +145,7 @@ python3 -m http.server 8000
 - [x] **📅 Community Calendar** — event listings for Boise & Atlanta + virtual, Google Sheets backend
 - [x] **🎤 Co-Host & Collaborate** — collab board for events, workshops, AMAs & cross-promotion, Google Sheets backend
 - [x] **🎙️ Podcast Hub** — show directory, find guests/co-hosts/sponsors, Google Sheets backend
-- [ ] 📚 Resource Library · 🤖 AI agents
+- [x] **📚 Resource Library** — templates, playbooks, prompts & tools, Google Sheets backend
+- [ ] 🤖 AI agents
 
 Contributions and feedback welcome — **the door is open. Let's build this together.**
