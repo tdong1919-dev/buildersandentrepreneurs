@@ -89,6 +89,14 @@ var ENTITIES = {
       'industries', 'thesis', 'email', 'website', 'linkedin'
     ],
     required: ['name', 'email']
+  },
+  event: {
+    sheetName: 'Events',
+    headers: [
+      'id', 'timestamp', 'title', 'host', 'category', 'city', 'date', 'time',
+      'location', 'description', 'rsvpLink', 'email'
+    ],
+    required: ['title', 'email']
   }
 };
 

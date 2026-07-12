@@ -67,6 +67,10 @@ add-raise.html         # founder raise intake form
 add-investor.html      # investor intake form
 funding.js             # both directories + both forms (reads/writes the sheet)
 
+calendar.html          # 📅 Community Calendar (hub #8)
+add-event.html         # event posting form
+calendar.js            # directory + form logic (reads/writes the sheet)
+
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
@@ -126,6 +130,7 @@ python3 -m http.server 8000
 - [x] **🤝 Mentor Network** — mentor directory + signup form, Google Sheets backend
 - [x] **🆘 Help Board** — post-a-need board with category/urgency filters, Google Sheets backend
 - [x] **💰 Funding Hub** — raising + investing boards, Google Sheets backend (AI-assisted matching is a future upgrade)
-- [ ] 📅 Calendar · 🤖 AI agents
+- [x] **📅 Community Calendar** — event listings for Boise & Atlanta + virtual, Google Sheets backend
+- [ ] 🤖 AI agents
 
 Contributions and feedback welcome — **the door is open. Let's build this together.**
