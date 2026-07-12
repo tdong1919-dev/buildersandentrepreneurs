@@ -33,7 +33,7 @@
 
   // Scroll reveal
   var revealTargets = document.querySelectorAll(
-    ".card, .section__head, .feature-split__text, .feature-split__card, .book__text, .book__art, .city, .pill-cloud, .signup, .mission .lead"
+    ".card, .section__head, .feature-split__text, .feature-split__card, .book__text, .book__art, .city, .pill-cloud, .signup, .mission .lead, .preview-card, .mentor-panel, .activity-list"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -47,6 +47,11 @@
       });
     }, { threshold: 0.12 });
     revealTargets.forEach(function (el) { io.observe(el); });
+    // Safety net: never leave content permanently invisible if the observer
+    // misses an element (e.g. an instant scroll-to-anchor on load).
+    setTimeout(function () {
+      revealTargets.forEach(function (el) { el.classList.add("in"); });
+    }, 2000);
   } else {
     revealTargets.forEach(function (el) { el.classList.add("in"); });
   }

@@ -3,18 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founders &amp; Builders — The home base for builders and entrepreneurs</title>
-  <meta name="description" content="Founders & Builders is a practical, community-built ecosystem where founders, developers, designers, marketers, operators, investors, and creators find opportunities, connect with the right people, and build successful companies." />
+  <title>Founders &amp; Builders | Connect, Build, and Grow Together</title>
+  <meta name="description" content="Join a community of founders, developers, operators, mentors, investors, and service providers building businesses, products, and opportunities together." />
   <meta property="og:title" content="Founders & Builders" />
-  <meta property="og:description" content="The home base for builders and entrepreneurs. Not another social network — a practical ecosystem for building companies together." />
+  <meta property="og:description" content="The home base for people building what comes next. Connect with founders, developers, operators, mentors, and investors." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profiles.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Founders & Builders",
+    "description": "A community and platform for founders, builders, operators, mentors, and investors creating what comes next.",
+    "slogan": "Build faster. Together."
+  }
+  </script>
 </head>
 <body>
+  <!-- Icon sprite (Lucide-style inline icons, referenced via <use>) -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v18"/><path d="M14 22v-4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v4"/><path d="M18 10h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-4"/><path d="M2 22h20"/><path d="M9 6h.01M9 10h.01M9 14h.01"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 21v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M11 17l-5-5-3 3 5 5z"/><path d="M8 12l4-4 3 3 4-4 3 3-6 6-3-3-2 2z"/></symbol>
+    <symbol id="i-lifebuoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M19.1 4.9l-4.2 4.2M9.1 14.9l-4.2 4.2"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6l-5 4H4a1 1 0 0 0-1 1z"/><path d="M16 8a4 4 0 0 1 0 8"/><path d="M19 5a8 8 0 0 1 0 14"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3M8 22h8"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5a4 4 0 0 0-4-2.5h-1a3.5 3.5 0 0 0 0 7h1a3.5 3.5 0 0 1 0 7h-1a4 4 0 0 1-4-2.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h7a2 2 0 0 1 2 2v14a1.5 1.5 0 0 0-1.5-1.5H2z"/><path d="M22 4h-7a2 2 0 0 0-2 2v14a1.5 1.5 0 0 1 1.5-1.5H22z"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="10" rx="2"/><path d="M12 5v4"/><circle cx="12" cy="4" r="1"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/><path d="M2 14h2M20 14h2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="i-mappin" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 3l.7 2.1L22 6l-2.3.9L19 9l-.7-2.1L16 6l2.3-.9z"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 2c2.5 2 4 5.5 4 9.5-1.5 1-2.5 2.5-4 5.5-1.5-3-2.5-4.5-4-5.5 0-4 1.5-7.5 4-9.5z"/><path d="M8 15l-3 3 1-4M16 15l3 3-1-4"/><circle cx="12" cy="10" r="1.6"/></symbol>
+  </svg>
+
   <!-- Nav -->
   <header class="nav" id="nav">
     <div class="nav__inner">
@@ -23,16 +55,15 @@
         <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#features">Platform</a>
+        <a href="#features">Discover</a>
         <a href="profiles.html">Members</a>
         <a href="business.html">Businesses</a>
         <a href="marketplace.html">Marketplace</a>
-        <a href="jobs.html">Jobs</a>
-        <a href="#calendar">Cities</a>
-        <a href="#book">The Book</a>
-        <a href="#feedback">Feedback</a>
+        <a href="jobs.html">Opportunities</a>
+        <a href="mentors.html">Mentors</a>
+        <a href="calendar.html">Events</a>
       </nav>
-      <a href="#join" class="btn btn--sm">Join the waitlist</a>
+      <a href="#join" class="btn btn--sm">Join the Community</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -42,38 +73,83 @@
   <main id="top">
     <!-- Hero -->
     <section class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <p class="eyebrow">🚀 The platform vision</p>
-        <h1 class="hero__title">
-          The home base for<br /><span class="grad">builders &amp; entrepreneurs.</span>
-        </h1>
+        <p class="eyebrow">
+          <svg class="icon" width="14" height="14"><use href="#i-users"/></svg>
+          A community for people who build
+        </p>
+        <h1 class="hero__title">Build faster. <span class="text-accent">Together.</span></h1>
         <p class="hero__sub">
-          Founders, developers, designers, marketers, operators, investors, students, and
-          creators — in one place to find opportunities, connect with the right people, and
-          help each other build successful companies.
+          Connect with founders, developers, operators, mentors, investors, and service
+          providers building businesses, products, and ideas that move the world forward.
         </p>
         <div class="hero__cta">
-          <a href="#join" class="btn btn--lg">Join the waitlist</a>
-          <a href="#features" class="btn btn--ghost btn--lg">Explore the vision ↓</a>
+          <a href="#join" class="btn btn--lg">Join the Community</a>
+          <a href="profiles.html" class="btn btn--secondary btn--lg">Explore Members</a>
         </div>
-        <p class="hero__note">Not another social network. A practical, community-built ecosystem.</p>
+        <ul class="hero__trust">
+          <li><svg class="icon" width="14" height="14"><use href="#i-rocket"/></svg> Founder-led</li>
+          <li><svg class="icon" width="14" height="14"><use href="#i-handshake"/></svg> Built for collaboration</li>
+          <li><svg class="icon" width="14" height="14"><use href="#i-sparkles"/></svg> Open to every stage</li>
+        </ul>
+
+        <div class="hero__preview">
+          <div class="preview-window">
+            <div class="preview-window__bar">
+              <span class="preview-window__dot"></span><span class="preview-window__dot"></span><span class="preview-window__dot"></span>
+              <span class="preview-window__label">foundersandbuilders.com</span>
+            </div>
+            <div class="preview-grid">
+              <div class="preview-card">
+                <div class="preview-card__top">
+                  <div class="preview-card__avatar">AC</div>
+                  <div>
+                    <p class="preview-card__name">Ava Chen</p>
+                    <p class="preview-card__sub">Product · Boise</p>
+                  </div>
+                </div>
+                <p class="preview-card__desc">Building an AI copilot for indie founders. Looking for beta users.</p>
+                <div class="preview-card__tags"><span class="badge badge--mentor">Mentor</span></div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card__top">
+                  <div class="preview-card__avatar">TL</div>
+                  <div>
+                    <p class="preview-card__name">Tinkerlab</p>
+                    <p class="preview-card__sub">AI / SaaS · Remote</p>
+                  </div>
+                </div>
+                <p class="preview-card__desc">An AI copilot for solo founders. Piloting with 40 beta users.</p>
+                <div class="preview-card__tags"><span class="badge badge--hiring">Hiring</span></div>
+              </div>
+              <div class="preview-card">
+                <div class="preview-card__top">
+                  <div class="preview-card__avatar">FE</div>
+                  <div>
+                    <p class="preview-card__name">Founding Engineer</p>
+                    <p class="preview-card__sub">Tinkerlab · Full-time</p>
+                  </div>
+                </div>
+                <p class="preview-card__desc">$110–140k + equity. Join as the first engineering hire.</p>
+                <div class="preview-card__tags"><span class="badge badge--active">Remote</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Mission -->
+    <!-- Community Overview -->
     <section class="section mission" id="mission">
       <div class="container narrow">
-        <span class="kicker">Our mission</span>
+        <span class="kicker">Why Founders &amp; Builders</span>
         <h2 class="section__title">
-          Replace a handful of disconnected tools with one community that genuinely
-          helps you move forward.
+          One platform for the people, businesses, and opportunities behind every great idea.
         </h2>
         <p class="lead">
-          Spend less time searching across fragmented platforms — Discord, LinkedIn, Facebook
-          Groups, Meetup, Eventbrite, Slack — and more time building meaningful relationships
-          and successful companies. This is a community-built platform, and the vision keeps
-          evolving based on the people using it.
+          Founders &amp; Builders helps members find collaborators, customers, mentors, talent,
+          services, funding opportunities, and community — instead of piecing it together
+          across a dozen disconnected tools.
         </p>
       </div>
     </section>
@@ -84,89 +160,89 @@
         <div class="section__head">
           <span class="kicker">The platform</span>
           <h2 class="section__title">Everything a builder needs, under one roof.</h2>
-          <p class="section__desc">Thirteen connected hubs — each designed to remove friction from the work of building a company.</p>
+          <p class="section__desc">Eleven connected hubs — each designed to remove friction from the work of building a company.</p>
         </div>
 
         <div class="grid">
-          <a class="card card--link" href="profiles.html">
-            <div class="card__icon">👤</div>
+          <a class="card card--link card--lg" href="profiles.html">
+            <div class="card__icon"><svg class="icon"><use href="#i-users"/></svg></div>
             <h3>Member Profiles <span class="card__live">Live</span></h3>
             <p>Show what you're building, your stage, skills, industry, and what you're looking for — plus mentor, investor, podcast, and speaker status.</p>
-            <span class="card__cta">Explore the directory →</span>
+            <span class="card__cta">Explore the directory <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="business.html">
-            <div class="card__icon">🏢</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-building"/></svg></div>
             <h3>Business Directory <span class="card__live">Live</span></h3>
-            <p>A searchable directory for startups, small businesses, agencies, nonprofits, freelancers, and service providers — with hiring status and links.</p>
-            <span class="card__cta">Explore the directory →</span>
+            <p>A searchable directory for startups, small businesses, agencies, nonprofits, freelancers, and service providers.</p>
+            <span class="card__cta">Browse businesses <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="marketplace.html">
-            <div class="card__icon">🛍️</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-store"/></svg></div>
             <h3>Products &amp; Services <span class="card__live">Live</span></h3>
-            <p>A marketplace to promote SaaS, AI tools, consulting, design, courses, and physical products so the community can support one another.</p>
-            <span class="card__cta">Browse the marketplace →</span>
+            <p>A marketplace to promote SaaS, AI tools, consulting, design, courses, and physical products.</p>
+            <span class="card__cta">Explore the marketplace <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="jobs.html">
-            <div class="card__icon">💼</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-briefcase"/></svg></div>
             <h3>Jobs &amp; Opportunities <span class="card__live">Live</span></h3>
             <p>A community job board — full-time, contract, freelance, fractional, advisory, and co-founder opportunities.</p>
-            <span class="card__cta">Browse opportunities →</span>
+            <span class="card__cta">View opportunities <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="mentors.html">
-            <div class="card__icon">🤝</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-handshake"/></svg></div>
             <h3>Mentor Network <span class="card__live">Live</span></h3>
-            <p>Request a mentor or become one. Match on industry, stage, goals, experience, availability, and office hours.</p>
-            <span class="card__cta">Find a mentor →</span>
+            <p>Request a mentor or become one. Match on industry, stage, goals, experience, and availability.</p>
+            <span class="card__cta">Find your match <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link card--accent" href="help.html">
-            <div class="card__icon">🆘</div>
-            <h3>🆘 <span class="card__live">Live</span></h3>
-            <p>A community help board where members post exactly what they need — a technical co-founder, beta testers, intros, legal, sales, or feedback on an MVP.</p>
-            <span class="card__cta">Ask for help →</span>
+            <div class="card__icon"><svg class="icon"><use href="#i-lifebuoy"/></svg></div>
+            <h3>Help Board <span class="card__live">Live</span></h3>
+            <p>Post exactly what you need — a technical co-founder, beta testers, intros, legal, sales, or feedback.</p>
+            <span class="card__cta">Ask for help <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="collaborate.html">
-            <div class="card__icon">🎤</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-megaphone"/></svg></div>
             <h3>Co-Host &amp; Collaborate <span class="card__live">Live</span></h3>
-            <p>Find someone to co-host an event, run a workshop, organize a meetup, host an AMA, cross-promote, or build a project together.</p>
-            <span class="card__cta">Find a collaborator →</span>
+            <p>Find someone to co-host an event, run a workshop, host an AMA, cross-promote, or build together.</p>
+            <span class="card__cta">Find a collaborator <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="podcasts.html">
-            <div class="card__icon">🎙️</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-mic"/></svg></div>
             <h3>Podcast Hub <span class="card__live">Live</span></h3>
-            <p>Promote your podcast, find guests, volunteer as an expert, and discover local shows searchable by topic.</p>
-            <span class="card__cta">Explore the Podcast Hub →</span>
+            <p>Promote your podcast, find guests, volunteer as an expert, and discover local shows by topic.</p>
+            <span class="card__cta">Explore the Podcast Hub <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
-          <a class="card card--link" href="funding.html">
-            <div class="card__icon">💰</div>
+          <a class="card card--link card--lg" href="funding.html">
+            <div class="card__icon"><svg class="icon"><use href="#i-dollar"/></svg></div>
             <h3>Funding Hub <span class="card__live">Live</span></h3>
             <p>Founders raising capital and investors looking for deals — browse both sides and match on stage, industry, and check size.</p>
-            <span class="card__cta">Explore the Funding Hub →</span>
+            <span class="card__cta">Explore the Funding Hub <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="calendar.html">
-            <div class="card__icon">📅</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-calendar"/></svg></div>
             <h3>Community Calendar <span class="card__live">Live</span></h3>
-            <p>Virtual and in-person events, workshops, meetups, hack nights, demo days, office hours, and pitch competitions.</p>
-            <span class="card__cta">See what's coming up →</span>
+            <p>Virtual and in-person events, workshops, meetups, hack nights, demo days, and pitch competitions.</p>
+            <span class="card__cta">See what's coming up <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <a class="card card--link" href="resources.html">
-            <div class="card__icon">📚</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-book"/></svg></div>
             <h3>Resource Library <span class="card__live">Live</span></h3>
-            <p>Templates, playbooks, AI prompts, startup guides, grant and accelerator databases, checklists, SOPs, and recommended software.</p>
-            <span class="card__cta">Browse the library →</span>
+            <p>Templates, playbooks, AI prompts, startup guides, grant and accelerator databases, and SOPs.</p>
+            <span class="card__cta">Browse the library <svg class="icon"><use href="#i-arrow-right"/></svg></span>
           </a>
 
           <article class="card">
-            <div class="card__icon">🤖</div>
+            <div class="card__icon"><svg class="icon"><use href="#i-bot"/></svg></div>
             <h3>Future AI Agents</h3>
             <p>Matchmaking for founders, investors, mentors, and podcast guests — plus a community concierge and search assistant.</p>
           </article>
@@ -174,11 +250,242 @@
       </div>
     </section>
 
+    <!-- Member Discovery preview -->
+    <section class="section" id="discover-members">
+      <div class="container">
+        <div class="preview-section__head">
+          <div>
+            <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-users"/></svg> Member Discovery</span>
+            <h2 class="section__title">Find people building alongside you.</h2>
+            <div class="filter-row">
+              <span class="filter-chip is-active">Founder</span>
+              <span class="filter-chip">Developer</span>
+              <span class="filter-chip">Designer</span>
+              <span class="filter-chip">Investor</span>
+              <span class="filter-chip">Mentor</span>
+              <span class="filter-chip">Hiring</span>
+            </div>
+          </div>
+          <a href="profiles.html" class="btn btn--secondary">Explore Members</a>
+        </div>
+
+        <div class="preview-grid preview-grid--live">
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">MR</div>
+              <div>
+                <p class="preview-card__name">Marcus Reed</p>
+                <p class="preview-card__sub">Fractional CFO · Atlanta</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">Building financial modeling tools for early-stage startups. Open to advisory work.</p>
+            <div class="preview-card__tags">
+              <span class="badge badge--investor">Investor</span>
+              <span class="badge"><span class="status-dot"></span>&nbsp;Open to collaborate</span>
+            </div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">PN</div>
+              <div>
+                <p class="preview-card__name">Priya Nair</p>
+                <p class="preview-card__sub">Design &amp; Community · Boise</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">Growing a marketplace for local makers. Looking for a senior engineer.</p>
+            <div class="preview-card__tags">
+              <span class="badge badge--hiring">Hiring</span>
+            </div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">DE</div>
+              <div>
+                <p class="preview-card__name">Dana Ellis</p>
+                <p class="preview-card__sub">Fractional CTO · Remote</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">15 years in engineering leadership. Helping technical founders hire well.</p>
+            <div class="preview-card__tags">
+              <span class="badge badge--mentor">Mentor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Directory preview -->
+    <section class="section" id="discover-business" style="background:var(--bg)">
+      <div class="container">
+        <div class="preview-section__head">
+          <div>
+            <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-building"/></svg> Business Directory</span>
+            <h2 class="section__title">Startups, agencies, and service providers to work with.</h2>
+          </div>
+          <a href="business.html" class="btn btn--secondary">Browse Businesses</a>
+        </div>
+
+        <div class="preview-grid preview-grid--live">
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">TL</div>
+              <div>
+                <p class="preview-card__name">Tinkerlab</p>
+                <p class="preview-card__sub">AI / SaaS · Remote</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">An AI copilot product for indie founders, built by a two-person team.</p>
+            <div class="preview-card__tags"><span class="badge badge--hiring">Hiring</span></div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">RF</div>
+              <div>
+                <p class="preview-card__name">Reed Finance</p>
+                <p class="preview-card__sub">Fintech Services · Atlanta</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">Fractional CFO services for seed and Series A startups.</p>
+            <div class="preview-card__tags"><span class="badge badge--verified">Verified</span></div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">CR</div>
+              <div>
+                <p class="preview-card__name">Craftly</p>
+                <p class="preview-card__sub">E-commerce · Boise</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">A marketplace connecting local makers with nearby customers.</p>
+            <div class="preview-card__tags"><span class="badge badge--active">Active builder</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunity preview -->
+    <section class="section" id="discover-jobs">
+      <div class="container">
+        <div class="preview-section__head">
+          <div>
+            <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-briefcase"/></svg> Jobs &amp; Opportunities</span>
+            <h2 class="section__title">Roles, contracts, and co-founder seats — open now.</h2>
+          </div>
+          <a href="jobs.html" class="btn btn--secondary">View Opportunities</a>
+        </div>
+
+        <div class="preview-grid preview-grid--live">
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">T</div>
+              <div>
+                <p class="preview-card__name">Founding Engineer</p>
+                <p class="preview-card__sub">Tinkerlab · Full-time</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">$110–140k + equity. Boise, ID — remote-friendly.</p>
+            <div class="preview-card__tags"><span class="badge badge--active">Remote</span></div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">C</div>
+              <div>
+                <p class="preview-card__name">Fractional CMO</p>
+                <p class="preview-card__sub">Craftly · Fractional</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">$3k/mo, 10hrs/wk. Help a Series-seed marketplace grow.</p>
+            <div class="preview-card__tags"><span class="badge badge--active">Remote</span></div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card__top">
+              <div class="preview-card__avatar">S</div>
+              <div>
+                <p class="preview-card__name">Technical Co-founder</p>
+                <p class="preview-card__sub">Stealth · Co-founder</p>
+              </div>
+            </div>
+            <p class="preview-card__desc">Equity. Atlanta, GA — fintech domain expertise on the founding team.</p>
+            <div class="preview-card__tags"><span class="badge badge--hiring">Co-founder</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentor Network split -->
+    <section class="section" id="mentor-network" style="background:var(--bg)">
+      <div class="container narrow">
+        <div class="section__head">
+          <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-handshake"/></svg> Mentor Network</span>
+          <h2 class="section__title">Get guidance, or give it.</h2>
+          <p class="section__desc">Match on industry, stage, expertise, availability, and office hours.</p>
+        </div>
+        <div class="mentor-split">
+          <div class="mentor-panel">
+            <div class="mentor-panel__icon"><svg class="icon" width="24" height="24"><use href="#i-search"/></svg></div>
+            <h3>I Need a Mentor</h3>
+            <p>Browse mentors by expertise and stage, and reach out directly — no gatekeeping, no waitlist.</p>
+            <div class="tag-row">
+              <span class="tag">Fundraising</span><span class="tag">Product</span><span class="tag">Marketing</span><span class="tag">Sales</span><span class="tag">Technology</span>
+            </div>
+            <a href="mentors.html" class="btn btn--secondary">Find a Mentor</a>
+          </div>
+          <div class="mentor-panel">
+            <div class="mentor-panel__icon"><svg class="icon" width="24" height="24"><use href="#i-handshake"/></svg></div>
+            <h3>I Want to Mentor</h3>
+            <p>Share what you know with founders who need it. List your expertise and set your own availability.</p>
+            <div class="tag-row">
+              <span class="tag">Operations</span><span class="tag">Leadership</span><span class="tag">Finance</span><span class="tag">Legal</span><span class="tag">Scaling</span>
+            </div>
+            <a href="become-mentor.html" class="btn btn--secondary">Become a Mentor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Activity -->
+    <section class="section" id="activity">
+      <div class="container narrow">
+        <div class="section__head">
+          <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-sparkles"/></svg> Community Activity</span>
+          <h2 class="section__title">See what's happening.</h2>
+          <p class="section__desc">A sample of the kind of activity you'll find across the community.</p>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <span class="activity-item__icon"><svg class="icon" width="18" height="18"><use href="#i-building"/></svg></span>
+            <span class="activity-item__text"><strong>Craftly</strong> was added to the Business Directory</span>
+            <span class="activity-item__time">2d ago</span>
+          </li>
+          <li class="activity-item">
+            <span class="activity-item__icon"><svg class="icon" width="18" height="18"><use href="#i-users"/></svg></span>
+            <span class="activity-item__text"><strong>Ava Chen</strong> is looking for a technical co-founder</span>
+            <span class="activity-item__time">3d ago</span>
+          </li>
+          <li class="activity-item">
+            <span class="activity-item__icon"><svg class="icon" width="18" height="18"><use href="#i-briefcase"/></svg></span>
+            <span class="activity-item__text">New opportunity posted: <strong>Founding Engineer</strong> at Tinkerlab</span>
+            <span class="activity-item__time">4d ago</span>
+          </li>
+          <li class="activity-item">
+            <span class="activity-item__icon"><svg class="icon" width="18" height="18"><use href="#i-calendar"/></svg></span>
+            <span class="activity-item__text"><strong>Founder Demo Night</strong> is coming up in Boise</span>
+            <span class="activity-item__time">5d ago</span>
+          </li>
+          <li class="activity-item">
+            <span class="activity-item__icon"><svg class="icon" width="18" height="18"><use href="#i-handshake"/></svg></span>
+            <span class="activity-item__text"><strong>Dana Ellis</strong> matched with a founder needing engineering advice</span>
+            <span class="activity-item__time">6d ago</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Founder Diagnostic -->
     <section class="section feature-split" id="diagnostic">
       <div class="container feature-split__inner">
         <div class="feature-split__text">
-          <span class="kicker">💕 Founder Diagnostic</span>
+          <span class="kicker">Founder Diagnostic</span>
           <h2 class="section__title">Find the bottleneck that's holding you back.</h2>
           <p class="lead">
             For post-MVP founders, an integrated diagnostic (powered by JIDOKA) surfaces where
@@ -206,28 +513,6 @@
       </div>
     </section>
 
-    <!-- Cities / Calendar -->
-    <section class="section cities" id="calendar">
-      <div class="container narrow center">
-        <span class="kicker">📅 Launch cities</span>
-        <h2 class="section__title">Starting in two cities. Expanding to more.</h2>
-        <div class="city-row">
-          <div class="city">
-            <span class="city__name">Boise</span>
-            <span class="city__tag">Launch chapter</span>
-          </div>
-          <div class="city">
-            <span class="city__name">Atlanta</span>
-            <span class="city__tag">Launch chapter</span>
-          </div>
-          <div class="city city--next">
-            <span class="city__name">Your city?</span>
-            <span class="city__tag">Future expansion</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- The Book / Philosophical Topic Generator -->
     <section class="section book" id="book">
       <div class="container book__inner">
@@ -240,7 +525,7 @@
           </div>
         </div>
         <div class="book__text">
-          <span class="kicker">📖 Philosophical Topic Generator</span>
+          <span class="kicker">Philosophical Topic Generator</span>
           <h2 class="section__title">Open the book. Start the conversation.</h2>
           <p class="lead">
             An AI experience that generates thought-provoking, abstract questions to spark
@@ -249,7 +534,37 @@
           <figure class="quote" id="quote">
             <blockquote>“What would society look like if failure carried no stigma?”</blockquote>
           </figure>
-          <button class="btn btn--ghost" id="nextQuote" type="button">Generate another question ↻</button>
+          <button class="btn btn--ghost" id="nextQuote" type="button">Generate another question <svg class="icon" width="15" height="15"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapters -->
+    <section class="section chapters" id="chapters">
+      <div class="container narrow center">
+        <span class="kicker"><svg class="icon" width="14" height="14"><use href="#i-mappin"/></svg> Local &amp; virtual community</span>
+        <h2 class="section__title">Starting in two cities. Open everywhere.</h2>
+        <div class="city-row">
+          <div class="city">
+            <svg class="icon city__icon" width="18" height="18"><use href="#i-mappin"/></svg>
+            <span class="city__name">Boise</span>
+            <span class="city__tag">Launch chapter</span>
+          </div>
+          <div class="city">
+            <svg class="icon city__icon" width="18" height="18"><use href="#i-mappin"/></svg>
+            <span class="city__name">Atlanta</span>
+            <span class="city__tag">Launch chapter</span>
+          </div>
+          <div class="city">
+            <svg class="icon city__icon" width="18" height="18"><use href="#i-users"/></svg>
+            <span class="city__name">Virtual</span>
+            <span class="city__tag">Open to everyone</span>
+          </div>
+          <div class="city city--next">
+            <svg class="icon city__icon" width="18" height="18"><use href="#i-mappin"/></svg>
+            <span class="city__name">Your city?</span>
+            <span class="city__tag">Future expansion</span>
+          </div>
         </div>
       </div>
     </section>
@@ -257,7 +572,7 @@
     <!-- Long-term vision -->
     <section class="section vision" id="vision">
       <div class="container narrow center">
-        <span class="kicker">🌎 Long-term vision</span>
+        <span class="kicker">Long-term vision</span>
         <h2 class="section__title">The place you naturally think of when you need to…</h2>
         <ul class="pill-cloud">
           <li>Find a co-founder</li><li>Hire talent</li><li>Find work</li><li>Meet investors</li>
@@ -268,16 +583,21 @@
       </div>
     </section>
 
-    <!-- Feedback / Join -->
+    <!-- Final CTA / Join -->
     <section class="section join" id="feedback">
       <div class="container narrow center" id="join">
-        <span class="kicker">💭 Community feedback</span>
-        <h2 class="section__title">This platform is being built with you.</h2>
+        <span class="kicker">Join the community</span>
+        <h2 class="section__title">Whatever you are building, you should not have to build it alone.</h2>
         <p class="lead">
-          What would make this your go-to platform instead of juggling a dozen other tools?
-          Join the waitlist and tell us the features you'd love to see.
+          Create your profile, share what you are working on, and connect with people who
+          can help you move forward.
         </p>
+        <div class="hero__cta">
+          <a href="create-profile.html" class="btn btn--lg">Join Founders &amp; Builders</a>
+          <a href="#features" class="btn btn--ghost btn--lg">Explore the Community <svg class="icon" width="15" height="15"><use href="#i-arrow-right"/></svg></a>
+        </div>
         <form class="signup" id="signupForm" novalidate>
+          <label for="email" class="sr-only">Email address</label>
           <input type="email" id="email" name="email" placeholder="you@email.com" aria-label="Email address" required />
           <button class="btn btn--lg" type="submit">Join the waitlist</button>
         </form>
@@ -288,13 +608,49 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <div class="brand">
-        <span class="brand__mark">🚀</span>
-        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="brand">
+            <span class="brand__mark">🚀</span>
+            <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+          </div>
+          <p>A practical, collaborative ecosystem for founders, builders, operators, mentors, and investors.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="profiles.html">Members</a></li>
+            <li><a href="business.html">Businesses</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="jobs.html">Opportunities</a></li>
+            <li><a href="mentors.html">Mentors</a></li>
+            <li><a href="calendar.html">Events</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#mission">About</a></li>
+            <li><a href="#chapters">Chapters</a></li>
+            <li><span>Community Guidelines</span></li>
+            <li><span>Partnerships</span></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">Resource Library</a></li>
+            <li><a href="help.html">Help Board</a></li>
+            <li><span>Privacy</span></li>
+            <li><span>Terms</span></li>
+          </ul>
+        </div>
       </div>
-      <p class="footer__tag">A practical, collaborative ecosystem for builders and entrepreneurs.</p>
-      <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+      <div class="footer__bottom">
+        <p class="footer__tag">Built for the people building what comes next.</p>
+        <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+      </div>
     </div>
   </footer>
 
