@@ -105,6 +105,14 @@ var ENTITIES = {
       'description', 'email', 'linkedin'
     ],
     required: ['title', 'email']
+  },
+  podcast: {
+    sheetName: 'Podcasts',
+    headers: [
+      'id', 'timestamp', 'showName', 'host', 'topics', 'format', 'lookingFor',
+      'city', 'description', 'listenLink', 'email', 'linkedin'
+    ],
+    required: ['showName', 'email']
   }
 };
 
