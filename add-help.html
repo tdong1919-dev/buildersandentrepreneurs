@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post what you need — Founders &amp; Builders</title>
+  <meta name="description" content="Post exactly what you need — a technical co-founder, beta testers, intros, legal, sales, or feedback — to the Founders & Builders help board." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profiles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#features">Platform</a>
+        <a href="profiles.html">Members</a>
+        <a href="business.html">Businesses</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="mentors.html">Mentors</a>
+        <a href="help.html">Help</a>
+      </nav>
+      <a href="help.html" class="btn btn--sm btn--ghost">View help board</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hub-head">
+      <div class="container narrow">
+        <a class="back-link" href="help.html">← Back to help board</a>
+        <span class="kicker">🆘 Ask for Help</span>
+        <h1 class="hub-head__title">What do you need right now?</h1>
+        <p class="hub-head__sub">
+          Be specific — the clearer the ask, the easier it is for someone to say yes. Only
+          the headline and contact email are required.
+        </p>
+      </div>
+    </section>
+
+    <section class="container narrow">
+      <form class="profile-form" id="helpForm" novalidate>
+        <!-- Honeypot (hidden from humans) -->
+        <div class="hp" aria-hidden="true">
+          <label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <fieldset class="fieldset">
+          <legend>The basics</legend>
+          <div class="field-grid">
+            <label class="field field--full">
+              <span class="field__label">What do you need? <em>*</em></span>
+              <input type="text" name="title" required placeholder="e.g. Technical co-founder for a fintech MVP" />
+            </label>
+            <label class="field">
+              <span class="field__label">Your name</span>
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span class="field__label">Contact email <em>*</em></span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="field">
+              <span class="field__label">Category</span>
+              <select name="category">
+                <option value="">Select…</option>
+                <option>Technical co-founder</option>
+                <option>Beta testers</option>
+                <option>Intro / connection</option>
+                <option>Legal</option>
+                <option>Sales / customers</option>
+                <option>Feedback on MVP</option>
+                <option>Design</option>
+                <option>Marketing</option>
+                <option>Funding</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field__label">Urgency</span>
+              <select name="urgency">
+                <option value="">Select…</option>
+                <option>ASAP</option>
+                <option>This month</option>
+                <option>No rush</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>Details</legend>
+          <div class="field-grid">
+            <label class="field field--full">
+              <span class="field__label">Description</span>
+              <textarea name="description" rows="4" placeholder="Context on what you're building and exactly what would help"></textarea>
+            </label>
+            <label class="field">
+              <span class="field__label">LinkedIn</span>
+              <input type="url" name="linkedin" placeholder="https://linkedin.com/in/…" />
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-footer">
+          <button type="submit" class="btn btn--lg" id="submitBtn">Post to the help board</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="help.js"></script>
+</body>
+</html>

@@ -64,6 +64,14 @@ var ENTITIES = {
       'linkedin', 'website'
     ],
     required: ['name', 'email']
+  },
+  help: {
+    sheetName: 'Help',
+    headers: [
+      'id', 'timestamp', 'name', 'title', 'category', 'urgency',
+      'description', 'email', 'linkedin'
+    ],
+    required: ['title', 'email']
   }
 };
 

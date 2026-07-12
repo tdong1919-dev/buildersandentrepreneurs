@@ -58,6 +58,10 @@ mentors.html           # 🤝 Mentor Network (hub #5)
 become-mentor.html     # mentor signup form
 mentors.js             # directory + form logic (reads/writes the sheet)
 
+help.html              # 🆘 Help Board (hub #6)
+add-help.html          # post-a-need form
+help.js                # directory + form logic (reads/writes the sheet)
+
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
@@ -115,6 +119,7 @@ python3 -m http.server 8000
 - [x] **🛍️ Products & Services Marketplace** — listings + "book a consultation", Google Sheets backend
 - [x] **💼 Jobs & Opportunities** — job board with apply/contact CTAs, Google Sheets backend
 - [x] **🤝 Mentor Network** — mentor directory + signup form, Google Sheets backend
-- [ ] 🆘 Help board · 💰 Funding Hub · 📅 Calendar · 🤖 AI agents
+- [x] **🆘 Help Board** — post-a-need board with category/urgency filters, Google Sheets backend
+- [ ] 💰 Funding Hub · 📅 Calendar · 🤖 AI agents
 
 Contributions and feedback welcome — **the door is open. Let's build this together.**

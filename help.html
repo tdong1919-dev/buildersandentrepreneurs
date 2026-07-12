@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Board — Founders &amp; Builders</title>
+  <meta name="description" content="Post exactly what you need — a technical co-founder, beta testers, intros, legal, sales, or feedback — and get help from the Founders & Builders community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profiles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#features">Platform</a>
+        <a href="profiles.html">Members</a>
+        <a href="business.html">Businesses</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="mentors.html">Mentors</a>
+        <a href="help.html" aria-current="page">Help</a>
+        <a href="index.html#book">The Book</a>
+      </nav>
+      <a href="add-help.html" class="btn btn--sm">Post what you need</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hub-head">
+      <div class="container">
+        <a class="back-link" href="index.html">← Back to home</a>
+        <span class="kicker">🆘 Help Board</span>
+        <h1 class="hub-head__title">Post exactly what you need.</h1>
+        <p class="hub-head__sub">
+          A technical co-founder, beta testers, an intro, legal help, your first customers,
+          feedback on your MVP — ask the community directly.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="toolbar">
+        <div class="search">
+          <span class="search__icon">🔍</span>
+          <input type="search" id="searchInput" placeholder="Search by what's needed…" aria-label="Search help requests" />
+        </div>
+        <div class="filters">
+          <select id="categorySelect" class="select-filter" aria-label="Filter by category">
+            <option value="">All categories</option>
+            <option>Technical co-founder</option>
+            <option>Beta testers</option>
+            <option>Intro / connection</option>
+            <option>Legal</option>
+            <option>Sales / customers</option>
+            <option>Feedback on MVP</option>
+            <option>Design</option>
+            <option>Marketing</option>
+            <option>Funding</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
+
+      <div class="profile-grid" id="profileGrid">
+        <!-- cards injected by help.js -->
+      </div>
+
+      <div class="empty" id="emptyState" hidden>
+        <p>No open asks match that search yet.</p>
+        <a href="add-help.html" class="btn">Be the first — post what you need</a>
+      </div>
+    </section>
+
+    <section class="hub-cta">
+      <div class="container narrow center">
+        <h2 class="section__title">Stuck on something?</h2>
+        <p class="lead">Post exactly what you need so the community can help.</p>
+        <a href="add-help.html" class="btn btn--lg">Post what you need</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+    </div>
+  </footer>
+
+  <!-- Help request detail modal -->
+  <div class="modal" id="profileModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalName">
+      <button class="modal__close" data-close aria-label="Close">✕</button>
+      <div id="modalBody"><!-- injected --></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="help.js"></script>
+</body>
+</html>
