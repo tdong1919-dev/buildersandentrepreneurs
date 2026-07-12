@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a mentor — Founders &amp; Builders</title>
+  <meta name="description" content="List yourself as a mentor so founders can find and book time with you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profiles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#features">Platform</a>
+        <a href="profiles.html">Members</a>
+        <a href="business.html">Businesses</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="mentors.html">Mentors</a>
+        <a href="index.html#book">The Book</a>
+      </nav>
+      <a href="mentors.html" class="btn btn--sm btn--ghost">View mentors</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hub-head">
+      <div class="container narrow">
+        <a class="back-link" href="mentors.html">← Back to mentors</a>
+        <span class="kicker">🤝 Mentor Signup</span>
+        <h1 class="hub-head__title">Become a mentor.</h1>
+        <p class="hub-head__sub">
+          Share what you know with founders who need it. Only your name and
+          contact email are required.
+        </p>
+      </div>
+    </section>
+
+    <section class="container narrow">
+      <form class="profile-form" id="mentorForm" novalidate>
+        <!-- Honeypot (hidden from humans) -->
+        <div class="hp" aria-hidden="true">
+          <label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <fieldset class="fieldset">
+          <legend>The basics</legend>
+          <div class="field-grid">
+            <label class="field">
+              <span class="field__label">Name <em>*</em></span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="field">
+              <span class="field__label">Contact email <em>*</em></span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="field">
+              <span class="field__label">Title / role</span>
+              <input type="text" name="title" placeholder="e.g. Product Coach, Fractional CTO" />
+            </label>
+            <label class="field">
+              <span class="field__label">Company</span>
+              <input type="text" name="company" autocomplete="organization" />
+            </label>
+            <label class="field">
+              <span class="field__label">Industry</span>
+              <input type="text" name="industry" placeholder="e.g. Fintech, DevTools, E-commerce" />
+            </label>
+            <label class="field">
+              <span class="field__label">Years of experience</span>
+              <input type="text" name="experience" placeholder="e.g. 12 years" />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>How you can help</legend>
+          <div class="field-grid">
+            <label class="field field--full">
+              <span class="field__label">Expertise</span>
+              <input type="text" name="expertise" placeholder="e.g. Fundraising, Go-to-market, Hiring, Product" />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Stages you help with</span>
+              <input type="text" name="stages" placeholder="e.g. Idea, MVP, Seed" />
+            </label>
+            <label class="field">
+              <span class="field__label">Availability</span>
+              <input type="text" name="availability" placeholder="e.g. 2 hrs/month" />
+            </label>
+            <label class="field">
+              <span class="field__label">Office hours</span>
+              <input type="text" name="officeHours" placeholder="e.g. Fridays 2-4pm, or a booking link" />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Bio</span>
+              <textarea name="bio" rows="4" placeholder="Your background and what founders can expect from a session with you"></textarea>
+            </label>
+            <label class="field">
+              <span class="field__label">LinkedIn</span>
+              <input type="url" name="linkedin" placeholder="https://linkedin.com/in/…" />
+            </label>
+            <label class="field">
+              <span class="field__label">Website</span>
+              <input type="url" name="website" placeholder="https://" />
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-footer">
+          <button type="submit" class="btn btn--lg" id="submitBtn">List me as a mentor</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand">
+        <span class="brand__mark">🚀</span>
+        <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="mentors.js"></script>
+</body>
+</html>

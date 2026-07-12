@@ -55,6 +55,15 @@ var ENTITIES = {
       'compensation', 'description', 'applyLink', 'email'
     ],
     required: ['title', 'email']
+  },
+  mentor: {
+    sheetName: 'Mentors',
+    headers: [
+      'id', 'timestamp', 'name', 'title', 'company', 'industry', 'expertise',
+      'stages', 'experience', 'availability', 'officeHours', 'bio', 'email',
+      'linkedin', 'website'
+    ],
+    required: ['name', 'email']
   }
 };
 
