@@ -134,7 +134,7 @@
   function badges(l) {
     var out = "";
     if (l.category) out += '<span class="badge">' + esc(l.category) + "</span>";
-    if (l.demo) out += '<span class="badge badge--speaker">🎥 Demo</span>';
+    if (l.demo) out += '<span class="badge badge--speaker">Demo</span>';
     return out;
   }
 
@@ -192,7 +192,7 @@
       (l.description ? '<p class="modal__building">' + esc(l.description) + "</p>" : "") +
       linkRow(l) +
       (l.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(l.email) + "?subject=" + encodeURIComponent("Booking consultation: " + l.name) + '">📅 Book a consultation</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(l.email) + "?subject=" + encodeURIComponent("Booking consultation: " + l.name) + '">Book a consultation</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -238,7 +238,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Publish listing";
         }, 600);
@@ -262,7 +262,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your listing is live! Redirecting you to the marketplace…", "ok");
+      say("Your listing is live! Redirecting you to the marketplace…", "ok");
       setTimeout(function () { window.location.href = "marketplace.html"; }, 1600);
     }
 

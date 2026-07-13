@@ -33,7 +33,7 @@
 
   // Scroll reveal
   var revealTargets = document.querySelectorAll(
-    ".card, .section__head, .feature-split__text, .feature-split__card, .book__text, .book__art, .city, .pill-cloud, .signup, .mission .lead, .preview-card, .mentor-panel, .activity-list"
+    ".card, .section__head, .feature-split__text, .feature-split__card, .book__text, .book__art, .city, .pill-cloud, .signup, .mission .lead, .preview-card, .mentor-panel, .activity-list, .accelerator__panel"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -54,6 +54,28 @@
     }, 2000);
   } else {
     revealTargets.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // Staggered reveal for hub cards (profiles, business, jobs, mentors, etc.)
+  // Cards are injected by each hub's own script, so watch the grid instead of
+  // touching every hub file individually.
+  var profileGrid = document.getElementById("profileGrid");
+  if (profileGrid) {
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var staggerNew = function () {
+      var cards = profileGrid.querySelectorAll(".pcard:not(.stagger-init)");
+      cards.forEach(function (card, i) {
+        card.classList.add("stagger-init");
+        card.style.transitionDelay = reduceMotion ? "0ms" : (i % 12) * 40 + "ms";
+      });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          cards.forEach(function (card) { card.classList.add("in"); });
+        });
+      });
+    };
+    staggerNew();
+    new MutationObserver(staggerNew).observe(profileGrid, { childList: true });
   }
 
   // Philosophical topic generator
@@ -96,7 +118,7 @@
       var value = (email && email.value || "").trim();
       var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
       if (!valid) {
-        msg.style.color = "#ff8fa3";
+        msg.style.color = "#B0473F";
         msg.textContent = "Please enter a valid email address.";
         return;
       }
@@ -106,7 +128,7 @@
         localStorage.setItem("fb_waitlist", JSON.stringify(list));
       } catch (err) { /* ignore storage errors */ }
       msg.style.color = "";
-      msg.textContent = "🎉 You're on the list! We'll be in touch — thanks for building with us.";
+      msg.textContent = "You're on the list! We'll be in touch — thanks for building with us.";
       form.reset();
     });
   }

@@ -267,13 +267,13 @@
       detailBlock("Raised so far", r.raisedSoFar) +
       detailBlock("Use of funds", r.useOfFunds) +
       (r.website
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(r.website)) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(r.website)) + '" target="_blank" rel="noopener noreferrer">Website</a>'
         : "") +
       (r.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(r.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(r.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (r.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(r.email) + "?subject=" + encodeURIComponent("Re: " + r.company + "'s raise") + '">✉️ Get in touch</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(r.email) + "?subject=" + encodeURIComponent("Re: " + r.company + "'s raise") + '">Get in touch</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -299,13 +299,13 @@
       detailBlock("Typical check size", inv.checkSize) +
       detailBlock("Industries", inv.industries) +
       (inv.website
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(inv.website)) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(inv.website)) + '" target="_blank" rel="noopener noreferrer">Website</a>'
         : "") +
       (inv.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(inv.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(inv.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (inv.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(inv.email) + "?subject=" + encodeURIComponent("Introduction via Founders & Builders") + '">✉️ Get in touch</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(inv.email) + "?subject=" + encodeURIComponent("Introduction via Founders & Builders") + '">Get in touch</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -396,8 +396,8 @@
       missing: "Please fill in your company name and contact email.",
       submitting: "Posting…",
       submit: "Post your raise",
-      demoOk: "✅ Demo mode — your raise looks great! Connect the Google Sheet backend to publish it for real.",
-      ok: "🎉 Your raise is live! Redirecting you to the Funding Hub…",
+      demoOk: "Demo mode — your raise looks great! Connect the Google Sheet backend to publish it for real.",
+      ok: "Your raise is live! Redirecting you to the Funding Hub…",
       err: "Something went wrong posting your raise. Please try again."
     });
   }
@@ -408,8 +408,8 @@
       missing: "Please fill in your name and contact email.",
       submitting: "Submitting…",
       submit: "List me as an investor",
-      demoOk: "✅ Demo mode — your investor profile looks great! Connect the Google Sheet backend to publish it for real.",
-      ok: "🎉 You're listed! Redirecting you to the Funding Hub…",
+      demoOk: "Demo mode — your investor profile looks great! Connect the Google Sheet backend to publish it for real.",
+      ok: "You're listed! Redirecting you to the Funding Hub…",
       err: "Something went wrong sending your info. Please try again."
     });
   }

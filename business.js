@@ -143,7 +143,7 @@
   function badges(b) {
     var out = "";
     if (b.category) out += '<span class="badge">' + esc(b.category) + "</span>";
-    if (isHiring(b)) out += '<span class="badge badge--mentor">🟢 ' + esc(b.hiring) + "</span>";
+    if (isHiring(b)) out += '<span class="badge badge--mentor">' + esc(b.hiring) + "</span>";
     return out;
   }
 
@@ -164,7 +164,7 @@
         (b.description ? '<p class="pcard__building">' + esc(b.description) + "</p>" : "") +
         (svcTags ? '<div class="tags">' + svcTags + "</div>" : "") +
         '<div class="pcard__foot">' +
-          '<span class="pcard__loc">' + (b.team ? "👥 " + esc(b.team) : "") + "</span>" +
+          '<span class="pcard__loc">' + (b.team ? esc(b.team) : "") + "</span>" +
           '<div class="badges">' + badges(b) + "</div>" +
         "</div>" +
       "</article>"
@@ -210,14 +210,14 @@
         "<div>" +
           '<h2 id="modalName" class="modal__name">' + esc(b.name) + "</h2>" +
           (b.industry ? '<p class="modal__biz">' + esc(b.industry) + "</p>" : "") +
-          (b.team ? '<p class="modal__meta">👥 ' + esc(b.team) + "</p>" : "") +
+          (b.team ? '<p class="modal__meta">' + esc(b.team) + "</p>" : "") +
           '<div class="badges">' + badges(b) + "</div>" +
         "</div>" +
       "</div>" +
       (b.description ? '<p class="modal__building">' + esc(b.description) + "</p>" : "") +
       (svcTags ? '<div class="tags">' + svcTags + "</div>" : "") +
       linkRow(b) +
-      (b.email ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(b.email) + '">✉️ Get in touch</a>' : "");
+      (b.email ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(b.email) + '">Get in touch</a>' : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
   }
@@ -262,7 +262,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Publish listing";
         }, 600);
@@ -286,7 +286,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your listing is live! Redirecting you to the directory…", "ok");
+      say("Your listing is live! Redirecting you to the directory…", "ok");
       setTimeout(function () { window.location.href = "business.html"; }, 1600);
     }
 

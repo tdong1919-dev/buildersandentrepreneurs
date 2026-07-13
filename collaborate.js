@@ -139,7 +139,7 @@
   function badges(c) {
     var out = "";
     if (c.category) out += '<span class="badge">' + esc(c.category) + "</span>";
-    if (truthy(c.format)) out += '<span class="badge badge--mentor">🌎 Virtual</span>';
+    if (truthy(c.format)) out += '<span class="badge badge--mentor">Virtual</span>';
     return out;
   }
 
@@ -155,7 +155,7 @@
         "</div>" +
         (c.description ? '<p class="pcard__building">' + esc(c.description) + "</p>" : "") +
         '<div class="pcard__foot">' +
-          '<span class="pcard__loc">' + (c.city ? "📍 " + esc(c.city) : "") + "</span>" +
+          '<span class="pcard__loc">' + (c.city ? esc(c.city) : "") + "</span>" +
           '<div class="badges">' + badges(c) + "</div>" +
         "</div>" +
       "</article>"
@@ -184,16 +184,16 @@
         "<div>" +
           '<h2 id="modalName" class="modal__name">' + esc(c.title) + "</h2>" +
           (c.name ? '<p class="modal__biz">' + esc(c.name) + "</p>" : "") +
-          '<p class="modal__meta">' + (c.city ? "📍 " + esc(c.city) : "") + "</p>" +
+          '<p class="modal__meta">' + (c.city ? esc(c.city) : "") + "</p>" +
           '<div class="badges">' + badges(c) + "</div>" +
         "</div>" +
       "</div>" +
       detailBlock("Description", c.description) +
       (c.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(c.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(c.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (c.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(c.email) + "?subject=" + encodeURIComponent("Re: " + c.title) + '">✉️ Let\'s talk</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(c.email) + "?subject=" + encodeURIComponent("Re: " + c.title) + '">Let\'s talk</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -239,7 +239,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your collab looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your collab looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Post the collab";
         }, 600);
@@ -263,7 +263,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your collab is live! Redirecting you…", "ok");
+      say("Your collab is live! Redirecting you…", "ok");
       setTimeout(function () { window.location.href = "collaborate.html"; }, 1600);
     }
 

@@ -173,7 +173,7 @@
         (e.description ? '<p class="pcard__building">' + esc(e.description) + "</p>" : "") +
         '<div class="pcard__foot">' +
           '<span class="pcard__loc">' +
-            (e.date ? "📅 " + esc(formatDate(e.date)) : "") +
+            (e.date ? esc(formatDate(e.date)) : "") +
             (e.time ? (e.date ? " · " : "") + esc(e.time) : "") +
           "</span>" +
           '<div class="badges">' + badges(e) + "</div>" +
@@ -205,8 +205,8 @@
           '<h2 id="modalName" class="modal__name">' + esc(e.title) + "</h2>" +
           (e.host ? '<p class="modal__biz">' + esc(e.host) + "</p>" : "") +
           '<p class="modal__meta">' +
-            (e.date ? "📅 " + esc(formatDate(e.date)) + "&nbsp;&nbsp;" : "") +
-            (e.time ? "🕐 " + esc(e.time) : "") +
+            (e.date ? esc(formatDate(e.date)) + "&nbsp;&nbsp;" : "") +
+            (e.time ? esc(e.time) : "") +
           "</p>" +
           '<div class="badges">' + badges(e) + "</div>" +
         "</div>" +
@@ -214,10 +214,10 @@
       detailBlock("Description", e.description) +
       detailBlock("Location", e.location) +
       (e.rsvpLink
-        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(e.rsvpLink)) + '" target="_blank" rel="noopener noreferrer">🔗 RSVP</a>'
+        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(e.rsvpLink)) + '" target="_blank" rel="noopener noreferrer">RSVP</a>'
         : "") +
       (e.email
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(e.email) + "?subject=" + encodeURIComponent("Re: " + e.title) + '">✉️ Contact the host</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(e.email) + "?subject=" + encodeURIComponent("Re: " + e.title) + '">Contact the host</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -263,7 +263,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your event looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your event looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Post the event";
         }, 600);
@@ -287,7 +287,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your event is live! Redirecting you to the calendar…", "ok");
+      say("Your event is live! Redirecting you to the calendar…", "ok");
       setTimeout(function () { window.location.href = "calendar.html"; }, 1600);
     }
 

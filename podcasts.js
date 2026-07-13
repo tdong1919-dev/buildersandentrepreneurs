@@ -130,7 +130,7 @@
   function badges(p) {
     var out = "";
     if (p.format) out += '<span class="badge">' + esc(p.format) + "</span>";
-    if (p.lookingFor && p.lookingFor !== "Not right now") out += '<span class="badge badge--investor">🔍 ' + esc(p.lookingFor) + "</span>";
+    if (p.lookingFor && p.lookingFor !== "Not right now") out += '<span class="badge badge--investor">' + esc(p.lookingFor) + "</span>";
     tags(p.topics).forEach(function (t) {
       out += '<span class="badge badge--mentor">' + esc(t) + "</span>";
     });
@@ -149,7 +149,7 @@
         "</div>" +
         (p.description ? '<p class="pcard__building">' + esc(p.description) + "</p>" : "") +
         '<div class="pcard__foot">' +
-          '<span class="pcard__loc">' + (p.city ? "📍 " + esc(p.city) : "") + "</span>" +
+          '<span class="pcard__loc">' + (p.city ? esc(p.city) : "") + "</span>" +
           '<div class="badges">' + badges(p) + "</div>" +
         "</div>" +
       "</article>"
@@ -178,19 +178,19 @@
         "<div>" +
           '<h2 id="modalName" class="modal__name">' + esc(p.showName) + "</h2>" +
           (p.host ? '<p class="modal__biz">' + esc(p.host) + "</p>" : "") +
-          '<p class="modal__meta">' + (p.city ? "📍 " + esc(p.city) : "") + "</p>" +
+          '<p class="modal__meta">' + (p.city ? esc(p.city) : "") + "</p>" +
           '<div class="badges">' + badges(p) + "</div>" +
         "</div>" +
       "</div>" +
       detailBlock("Description", p.description) +
       (p.listenLink
-        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(p.listenLink)) + '" target="_blank" rel="noopener noreferrer">🎧 Listen</a>'
+        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(p.listenLink)) + '" target="_blank" rel="noopener noreferrer">Listen</a>'
         : "") +
       (p.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(p.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(p.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (p.email
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(p.email) + "?subject=" + encodeURIComponent("Re: " + p.showName) + '">✉️ Get in touch</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(p.email) + "?subject=" + encodeURIComponent("Re: " + p.showName) + '">Get in touch</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -236,7 +236,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your podcast listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your podcast listing looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "List your podcast";
         }, 600);
@@ -260,7 +260,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your show is listed! Redirecting you to the Podcast Hub…", "ok");
+      say("Your show is listed! Redirecting you to the Podcast Hub…", "ok");
       setTimeout(function () { window.location.href = "podcasts.html"; }, 1600);
     }
 

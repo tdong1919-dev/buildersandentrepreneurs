@@ -17,6 +17,10 @@
     if (!u) return "";
     return /^https?:\/\//i.test(u) ? u : "https://" + u;
   }
+  function initials(name) {
+    var parts = String(name || "?").trim().split(/\s+/);
+    return ((parts[0] || "")[0] || "") + ((parts[1] || "")[0] || "");
+  }
 
   /* ---------- sample data (used when no backend is configured) ---------- */
   var SAMPLE = [
@@ -115,7 +119,7 @@
     return (
       '<a class="pcard" href="' + esc(normUrl(r.link)) + '" target="_blank" rel="noopener noreferrer">' +
         '<div class="pcard__top">' +
-          '<div class="avatar">🔗</div>' +
+          '<div class="avatar">' + esc(initials(r.title).toUpperCase()) + "</div>" +
           '<div>' +
             '<h3 class="pcard__name">' + esc(r.title) + "</h3>" +
             (r.submittedBy ? '<p class="pcard__biz">Shared by ' + esc(r.submittedBy) + "</p>" : "") +
@@ -160,7 +164,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your resource looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your resource looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Submit the resource";
         }, 600);
@@ -184,7 +188,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your resource is live! Redirecting you to the library…", "ok");
+      say("Your resource is live! Redirecting you to the library…", "ok");
       setTimeout(function () { window.location.href = "resources.html"; }, 1600);
     }
 

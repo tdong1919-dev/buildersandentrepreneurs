@@ -198,13 +198,13 @@
       detailBlock("Availability", m.availability) +
       detailBlock("Office hours", m.officeHours) +
       (m.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(m.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(m.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (m.website
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(m.website)) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(m.website)) + '" target="_blank" rel="noopener noreferrer">Website</a>'
         : "") +
       (m.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(m.email) + "?subject=" + encodeURIComponent("Mentorship: intro from Founders & Builders") + '">✉️ Reach out</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(m.email) + "?subject=" + encodeURIComponent("Mentorship: intro from Founders & Builders") + '">Reach out</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -250,7 +250,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your mentor profile looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your mentor profile looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "List me as a mentor";
         }, 600);
@@ -274,7 +274,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 You're listed! Redirecting you to the mentor network…", "ok");
+      say("You're listed! Redirecting you to the mentor network…", "ok");
       setTimeout(function () { window.location.href = "mentors.html"; }, 1600);
     }
 

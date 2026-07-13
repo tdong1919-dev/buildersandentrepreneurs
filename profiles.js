@@ -141,10 +141,10 @@
 
   function badges(p) {
     var out = "";
-    if (truthy(p.mentor)) out += '<span class="badge badge--mentor">🤝 Mentor</span>';
-    if (truthy(p.investor)) out += '<span class="badge badge--investor">💰 Investor</span>';
-    if (truthy(p.speaker)) out += '<span class="badge badge--speaker">🎤 Speaker</span>';
-    if (truthy(p.podcast)) out += '<span class="badge badge--podcast">🎙️ Podcast</span>';
+    if (truthy(p.mentor)) out += '<span class="badge badge--mentor">Mentor</span>';
+    if (truthy(p.investor)) out += '<span class="badge badge--investor">Investor</span>';
+    if (truthy(p.speaker)) out += '<span class="badge badge--speaker">Speaker</span>';
+    if (truthy(p.podcast)) out += '<span class="badge badge--podcast">Podcast</span>';
     return out;
   }
 
@@ -164,7 +164,7 @@
         (p.building ? '<p class="pcard__building">' + esc(p.building) + "</p>" : "") +
         (skillTags ? '<div class="tags">' + skillTags + "</div>" : "") +
         '<div class="pcard__foot">' +
-          '<span class="pcard__loc">' + (p.location ? "📍 " + esc(p.location) : "") + "</span>" +
+          '<span class="pcard__loc">' + (p.location ? esc(p.location) : "") + "</span>" +
           '<div class="badges">' + badges(p) + "</div>" +
         "</div>" +
       "</article>"
@@ -209,10 +209,10 @@
           '<h2 id="modalName" class="modal__name">' + esc(p.name) + "</h2>" +
           (p.business ? '<p class="modal__biz">' + esc(p.business) + (p.stage ? " · " + esc(p.stage) : "") + "</p>" : "") +
           '<p class="modal__meta">' +
-            (p.industry ? "🏭 " + esc(p.industry) + "&nbsp;&nbsp;" : "") +
-            (p.location ? "📍 " + esc(p.location) : "") +
+            (p.industry ? esc(p.industry) + "&nbsp;&nbsp;" : "") +
+            (p.location ? esc(p.location) : "") +
           "</p>" +
-          '<div class="badges">' + badges(p) + (truthy(p.volunteer) ? '<span class="badge">🙌 Volunteer</span>' : "") + "</div>" +
+          '<div class="badges">' + badges(p) + (truthy(p.volunteer) ? '<span class="badge">Volunteer</span>' : "") + "</div>" +
         "</div>" +
       "</div>" +
       (p.building ? '<p class="modal__building">' + esc(p.building) + "</p>" : "") +
@@ -223,7 +223,7 @@
       detailBlock("How they can help", p.canHelp) +
       detailBlock("Products &amp; services", p.products) +
       linkRow(p) +
-      (p.email ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(p.email) + '">✉️ Get in touch</a>' : "");
+      (p.email ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(p.email) + '">Get in touch</a>' : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
   }
@@ -268,7 +268,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your profile looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your profile looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Publish my profile";
         }, 600);
@@ -294,7 +294,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your profile is live! Redirecting you to the directory…", "ok");
+      say("Your profile is live! Redirecting you to the directory…", "ok");
       setTimeout(function () { window.location.href = "profiles.html"; }, 1600);
     }
 

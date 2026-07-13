@@ -127,7 +127,7 @@
   function badges(h) {
     var out = "";
     if (h.category) out += '<span class="badge">' + esc(h.category) + "</span>";
-    if (h.urgency === "ASAP") out += '<span class="badge badge--investor">🔥 ASAP</span>';
+    if (h.urgency === "ASAP") out += '<span class="badge badge--investor">ASAP</span>';
     else if (h.urgency) out += '<span class="badge badge--mentor">' + esc(h.urgency) + "</span>";
     return out;
   }
@@ -178,10 +178,10 @@
       "</div>" +
       detailBlock("Description", h.description) +
       (h.linkedin
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(h.linkedin)) + '" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="' + esc(normUrl(h.linkedin)) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>'
         : "") +
       (h.email
-        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(h.email) + "?subject=" + encodeURIComponent("Re: " + h.title) + '">✉️ I can help</a>'
+        ? '<a class="btn btn--lg modal__contact" href="mailto:' + esc(h.email) + "?subject=" + encodeURIComponent("Re: " + h.title) + '">I can help</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -227,7 +227,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your ask looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your ask looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Post to the help board";
         }, 600);
@@ -251,7 +251,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your ask is live! Redirecting you to the help board…", "ok");
+      say("Your ask is live! Redirecting you to the help board…", "ok");
       setTimeout(function () { window.location.href = "help.html"; }, 1600);
     }
 

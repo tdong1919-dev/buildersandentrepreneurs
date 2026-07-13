@@ -139,7 +139,7 @@
   function badges(j) {
     var out = "";
     if (j.category) out += '<span class="badge">' + esc(j.category) + "</span>";
-    if (truthy(j.remote)) out += '<span class="badge badge--mentor">🌎 Remote</span>';
+    if (truthy(j.remote)) out += '<span class="badge badge--mentor">Remote</span>';
     return out;
   }
 
@@ -156,7 +156,7 @@
         (j.description ? '<p class="pcard__building">' + esc(j.description) + "</p>" : "") +
         '<div class="pcard__foot">' +
           '<span class="pcard__loc">' +
-            (j.location ? "📍 " + esc(j.location) : "") +
+            (j.location ? esc(j.location) : "") +
             (j.compensation ? (j.location ? " · " : "") + esc(j.compensation) : "") +
           "</span>" +
           '<div class="badges">' + badges(j) + "</div>" +
@@ -188,18 +188,18 @@
           '<h2 id="modalName" class="modal__name">' + esc(j.title) + "</h2>" +
           (j.company ? '<p class="modal__biz">' + esc(j.company) + "</p>" : "") +
           '<p class="modal__meta">' +
-            (j.location ? "📍 " + esc(j.location) + "&nbsp;&nbsp;" : "") +
-            (j.compensation ? "💵 " + esc(j.compensation) : "") +
+            (j.location ? esc(j.location) + "&nbsp;&nbsp;" : "") +
+            (j.compensation ? esc(j.compensation) : "") +
           "</p>" +
           '<div class="badges">' + badges(j) + "</div>" +
         "</div>" +
       "</div>" +
       detailBlock("Description", j.description) +
       (j.applyLink
-        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(j.applyLink)) + '" target="_blank" rel="noopener noreferrer">🔗 Apply now</a>'
+        ? '<a class="btn btn--lg modal__contact" href="' + esc(normUrl(j.applyLink)) + '" target="_blank" rel="noopener noreferrer">Apply now</a>'
         : "") +
       (j.email
-        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(j.email) + "?subject=" + encodeURIComponent("Application: " + j.title) + '">✉️ Contact about this role</a>'
+        ? '<a class="btn btn--lg btn--ghost modal__contact" href="mailto:' + esc(j.email) + "?subject=" + encodeURIComponent("Application: " + j.title) + '">Contact about this role</a>'
         : "");
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -245,7 +245,7 @@
 
       if (!hasBackend) {
         setTimeout(function () {
-          say("✅ Demo mode — your posting looks great! Connect the Google Sheet backend to publish it for real.", "ok");
+          say("Demo mode — your posting looks great! Connect the Google Sheet backend to publish it for real.", "ok");
           btn.disabled = false;
           btn.textContent = "Publish opportunity";
         }, 600);
@@ -269,7 +269,7 @@
 
     function onSuccess() {
       form.reset();
-      say("🎉 Your opportunity is live! Redirecting you to the jobs board…", "ok");
+      say("Your opportunity is live! Redirecting you to the jobs board…", "ok");
       setTimeout(function () { window.location.href = "jobs.html"; }, 1600);
     }
 
