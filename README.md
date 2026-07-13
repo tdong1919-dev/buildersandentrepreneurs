@@ -86,6 +86,7 @@ resources.js           # directory + form logic (reads/writes the sheet)
 profiles.css          # shared hub styling (cards, modal, forms, toolbar)
 config.js             # paste your Apps Script Web App URL here (shared by all hubs)
 apps-script/Code.gs   # Google Sheets backend — one Web App serves every hub
+apps-script/SCHEMA.md # Full schema reference: every entity's columns, types, enums
 ```
 
 ## Google Sheets backend
@@ -112,6 +113,12 @@ deployment rather than creating a new one — the URL in `config.js` stays valid
 Each sheet tab and its headers are created automatically on first use. Until
 `config.js` is set, every hub shows sample data and forms run in demo mode (nothing is
 saved).
+
+**Schema:** every entity's exact columns, types, required fields, and allowed values
+(enums) are documented in [`apps-script/SCHEMA.md`](apps-script/SCHEMA.md) — that's the
+place to look before adding a field or a new hub. The backend validates required fields
+and enum values server-side, so a submission with a bad category/stage/type value is
+rejected rather than silently written.
 
 **How it works:** each directory **reads** via JSONP (bypasses CORS, `?type=<hub>`), and
 each form **writes** by POSTing `{ type: "<hub>", ... }` to the same endpoint. A hidden

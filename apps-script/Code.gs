@@ -19,7 +19,24 @@
  * (Existing deployment URLs stay the same after a new version.)
  */
 
-// type -> { sheet name, column order, fields required to accept a submission }
+// type -> { sheet name, column order, fields required to accept a submission,
+// enums (allowed values for fields backed by a fixed <select> on the front end) }
+//
+// Field type conventions used across every entity below (see apps-script/SCHEMA.md
+// for the full reference):
+//   id         - server-generated, 8-char UUID slice
+//   timestamp  - server-generated, ISO 8601 string
+//   email      - string, validated as an email format client-side
+//   *link/website/linkedin/x/instagram/github/portfolio - URL string (protocol
+//              optional, normalized client-side)
+//   boolean-ish fields (mentor/investor/podcast/speaker/volunteer/hiring/remote)
+//              - stored as the string "Yes" or ""
+//   comma-list fields (skills/products/services/stages/industries/expertise/topics)
+//              - a single comma-separated string, split into tags client-side
+//   `location` - a free-text city/region string (used on individual profile/job
+//              style entities)
+//   `city`     - a value from the platform's defined chapter list (used on
+//              event/collab/podcast entities); see the `city` enum on `event`
 var ENTITIES = {
   profile: {
     sheetName: 'Profiles',
@@ -29,7 +46,10 @@ var ENTITIES = {
       'x', 'portfolio', 'bio', 'goals', 'lookingFor', 'canHelp',
       'mentor', 'investor', 'podcast', 'speaker', 'volunteer'
     ],
-    required: ['name', 'email']
+    required: ['name', 'email'],
+    enums: {
+      stage: ['Idea', 'Pre-launch', 'MVP / Beta', 'Early revenue', 'Growth', 'Scaling', 'Established']
+    }
   },
   business: {
     sheetName: 'Businesses',
@@ -38,7 +58,11 @@ var ENTITIES = {
       'industry', 'team', 'products', 'services', 'hiring', 'email',
       'linkedin', 'x', 'instagram'
     ],
-    required: ['name', 'email']
+    required: ['name', 'email'],
+    enums: {
+      category: ['Startup', 'Small business', 'Agency', 'Nonprofit', 'Freelancer', 'Service provider', 'Product', 'Software', 'Physical product'],
+      hiring: ['Hiring now', 'Not currently hiring', 'Open to great people']
+    }
   },
   listing: {
     sheetName: 'Listings',
@@ -46,7 +70,10 @@ var ENTITIES = {
       'id', 'timestamp', 'name', 'category', 'description', 'pricing',
       'image', 'demo', 'website', 'email'
     ],
-    required: ['name', 'email']
+    required: ['name', 'email'],
+    enums: {
+      category: ['Software', 'SaaS', 'AI tools', 'Marketing services', 'Consulting', 'Graphic design', 'Web development', 'Manufacturing', 'Coaching', 'Courses', 'Templates', 'Books', 'Physical products']
+    }
   },
   job: {
     sheetName: 'Jobs',
@@ -54,7 +81,10 @@ var ENTITIES = {
       'id', 'timestamp', 'title', 'company', 'category', 'location', 'remote',
       'compensation', 'description', 'applyLink', 'email'
     ],
-    required: ['title', 'email']
+    required: ['title', 'email'],
+    enums: {
+      category: ['Full-time', 'Part-time', 'Contract', 'Freelance', 'Internship', 'Volunteer', 'Fractional', 'Apprenticeship', 'Co-founder', 'Advisory board']
+    }
   },
   mentor: {
     sheetName: 'Mentors',
@@ -71,7 +101,11 @@ var ENTITIES = {
       'id', 'timestamp', 'name', 'title', 'category', 'urgency',
       'description', 'email', 'linkedin'
     ],
-    required: ['title', 'email']
+    required: ['title', 'email'],
+    enums: {
+      category: ['Technical co-founder', 'Beta testers', 'Intro / connection', 'Legal', 'Sales / customers', 'Feedback on MVP', 'Design', 'Marketing', 'Funding', 'Other'],
+      urgency: ['ASAP', 'This month', 'No rush']
+    }
   },
   raise: {
     sheetName: 'Raises',
@@ -80,7 +114,10 @@ var ENTITIES = {
       'amountSeeking', 'raisedSoFar', 'useOfFunds', 'description', 'email',
       'website', 'linkedin'
     ],
-    required: ['company', 'email']
+    required: ['company', 'email'],
+    enums: {
+      stage: ['Idea', 'Pre-seed', 'Seed', 'Series A', 'Series B+', 'Bridge / Note']
+    }
   },
   investor: {
     sheetName: 'Investors',
@@ -88,7 +125,10 @@ var ENTITIES = {
       'id', 'timestamp', 'name', 'firm', 'type', 'checkSize', 'stages',
       'industries', 'thesis', 'email', 'website', 'linkedin'
     ],
-    required: ['name', 'email']
+    required: ['name', 'email'],
+    enums: {
+      type: ['Angel', 'VC Fund', 'Family Office', 'Syndicate', 'Corporate VC', 'Accelerator']
+    }
   },
   event: {
     sheetName: 'Events',
@@ -96,7 +136,11 @@ var ENTITIES = {
       'id', 'timestamp', 'title', 'host', 'category', 'city', 'date', 'time',
       'location', 'description', 'rsvpLink', 'email'
     ],
-    required: ['title', 'email']
+    required: ['title', 'email'],
+    enums: {
+      category: ['Workshop', 'Meetup', 'AMA', 'Demo Day', 'Pitch Competition', 'Office Hours', 'Hack Night', 'Panel', 'Other'],
+      city: ['Boise, ID', 'Atlanta, GA', 'Washington, DC', 'Madison, AL', 'Virtual', 'Other']
+    }
   },
   collab: {
     sheetName: 'Collabs',
@@ -104,7 +148,10 @@ var ENTITIES = {
       'id', 'timestamp', 'title', 'name', 'category', 'format', 'city',
       'description', 'email', 'linkedin'
     ],
-    required: ['title', 'email']
+    required: ['title', 'email'],
+    enums: {
+      category: ['Event', 'Workshop', 'AMA', 'Meetup', 'Cross-promotion', 'Podcast episode', 'Project', 'Other']
+    }
   },
   podcast: {
     sheetName: 'Podcasts',
@@ -112,7 +159,11 @@ var ENTITIES = {
       'id', 'timestamp', 'showName', 'host', 'topics', 'format', 'lookingFor',
       'city', 'description', 'listenLink', 'email', 'linkedin'
     ],
-    required: ['showName', 'email']
+    required: ['showName', 'email'],
+    enums: {
+      format: ['Interview', 'Solo', 'Co-hosted', 'Panel'],
+      lookingFor: ['Guests', 'Co-host', 'Sponsors', 'Not right now']
+    }
   },
   resource: {
     sheetName: 'Resources',
@@ -120,7 +171,10 @@ var ENTITIES = {
       'id', 'timestamp', 'title', 'category', 'description', 'link',
       'submittedBy', 'email'
     ],
-    required: ['title', 'link']
+    required: ['title', 'link'],
+    enums: {
+      category: ['Template', 'Playbook', 'AI Prompt', 'Startup Guide', 'Grant Database', 'Accelerator Database', 'Checklist', 'SOP', 'Software / Tool', 'Other']
+    }
   }
 };
 
@@ -189,6 +243,16 @@ function doPost(e) {
     var missing = entity.required.filter(function (key) { return !data[key]; });
     if (missing.length) {
       return respond_({ ok: false, error: 'Required: ' + missing.join(', ') }, e);
+    }
+
+    // Enum validation: only checks fields that are both present in the
+    // submission and have a fixed set of allowed values. Empty/omitted
+    // optional fields are always fine.
+    var invalid = Object.keys(entity.enums || {}).filter(function (key) {
+      return data[key] && entity.enums[key].indexOf(data[key]) === -1;
+    });
+    if (invalid.length) {
+      return respond_({ ok: false, error: 'Invalid value for: ' + invalid.join(', ') }, e);
     }
 
     var sheet = getSheet_(entity);
