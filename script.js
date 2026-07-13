@@ -31,9 +31,30 @@
     });
   }
 
+  // Feature slider
+  var featureTrack = document.getElementById("featureTrack");
+  var featurePrev = document.getElementById("featurePrev");
+  var featureNext = document.getElementById("featureNext");
+  if (featureTrack && featurePrev && featureNext) {
+    var scrollFeatures = function (dir) {
+      var slide = featureTrack.querySelector(".feature-slide");
+      var amount = slide ? slide.getBoundingClientRect().width + 20 : 300;
+      featureTrack.scrollBy({ left: dir * amount, behavior: "smooth" });
+    };
+    featurePrev.addEventListener("click", function () { scrollFeatures(-1); });
+    featureNext.addEventListener("click", function () { scrollFeatures(1); });
+    var updateFeatureNav = function () {
+      featurePrev.disabled = featureTrack.scrollLeft <= 4;
+      featureNext.disabled = featureTrack.scrollLeft >= featureTrack.scrollWidth - featureTrack.clientWidth - 4;
+    };
+    featureTrack.addEventListener("scroll", updateFeatureNav, { passive: true });
+    window.addEventListener("resize", updateFeatureNav, { passive: true });
+    updateFeatureNav();
+  }
+
   // Scroll reveal
   var revealTargets = document.querySelectorAll(
-    ".card, .section__head, .feature-split__text, .feature-split__card, .book__text, .book__art, .city, .pill-cloud, .signup, .mission .lead, .preview-card, .mentor-panel, .activity-list, .accelerator__panel"
+    ".card, .section__head, .feature-split__text, .feature-split__card, .city, .pill-cloud, .signup, .mission .lead, .preview-card, .mentor-panel, .activity-list, .accelerator__panel, .membership__panel"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -76,36 +97,6 @@
     };
     staggerNew();
     new MutationObserver(staggerNew).observe(profileGrid, { childList: true });
-  }
-
-  // Philosophical topic generator
-  var questions = [
-    "What would society look like if failure carried no stigma?",
-    "Is authenticity possible if everyone is building a personal brand?",
-    "Would you rather build something meaningful that nobody sees, or something popular that changes very little?",
-    "If a company solves a real problem but no one profits, did it succeed?",
-    "Does ambition require an audience, or can it live entirely in private?",
-    "Is it braver to start something new or to walk away from something that isn't working?",
-    "Would you trade certainty of a small win for the possibility of a large one?",
-    "Can you truly collaborate with someone whose definition of success differs from yours?",
-    "Is a mentor more valuable for their answers or for their better questions?",
-    "If your work were erased tomorrow, what part of it would you rebuild first?"
-  ];
-  var quoteEl = document.querySelector("#quote blockquote");
-  var nextBtn = document.getElementById("nextQuote");
-  var lastIdx = 0;
-  if (quoteEl && nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      var idx;
-      do { idx = Math.floor(Math.random() * questions.length); }
-      while (idx === lastIdx && questions.length > 1);
-      lastIdx = idx;
-      quoteEl.style.opacity = "0";
-      setTimeout(function () {
-        quoteEl.textContent = "“" + questions[idx] + "”";
-        quoteEl.style.opacity = "1";
-      }, 220);
-    });
   }
 
   // Waitlist form (front-end only for now — stores locally, no backend)

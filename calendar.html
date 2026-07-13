@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community Calendar — Founders &amp; Builders</title>
-  <meta name="description" content="Virtual and in-person events, workshops, meetups, hack nights, demo days, office hours, and pitch competitions — launching in Boise and Atlanta." />
+  <meta name="description" content="Virtual and in-person events, workshops, meetups, hack nights, demo days, office hours, and pitch competitions — launching in Boise, Atlanta, and Washington, DC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -45,7 +45,9 @@
         <h1 class="hub-head__title">Find your next event.</h1>
         <p class="hub-head__sub">
           Virtual and in-person events, workshops, meetups, hack nights, demo days,
-          office hours, and pitch competitions — launching in Boise and Atlanta.
+          office hours, and pitch competitions — launching in Boise, Atlanta, and
+          Washington, DC. Hosting on Eventbrite, Luma, or Meetup? Post it here too —
+          your RSVP link takes people straight there.
         </p>
       </div>
     </section>
@@ -73,9 +75,12 @@
             <option value="">All cities</option>
             <option>Boise</option>
             <option>Atlanta</option>
+            <option>Washington, DC</option>
             <option>Virtual</option>
             <option>Other</option>
           </select>
+          <button class="chip is-active" id="viewList" data-view="list" type="button">List</button>
+          <button class="chip" id="viewCalendar" data-view="calendar" type="button">Calendar</button>
         </div>
       </div>
 
@@ -88,6 +93,21 @@
       <div class="empty" id="emptyState" hidden>
         <p>No events match that search yet.</p>
         <a href="add-event.html" class="btn">Be the first — post an event</a>
+      </div>
+
+      <div class="calendar-view" id="calendarView" hidden>
+        <div class="calendar-view__header">
+          <button class="feature-slider__btn" id="calPrev" type="button" aria-label="Previous month">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h3 class="calendar-view__label" id="calMonthLabel"></h3>
+          <button class="feature-slider__btn" id="calNext" type="button" aria-label="Next month">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid">
+          <!-- weekday headers + day cells injected by calendar.js -->
+        </div>
       </div>
     </section>
 
@@ -107,6 +127,7 @@
         <span class="brand__name">Founders <span class="amp">&amp;</span> Builders</span>
       </div>
       <p class="footer__copy">© <span id="year"></span> Founders &amp; Builders. Community-built.</p>
+      <p class="footer__powered"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg> Powered by Jidoka Group</p>
     </div>
   </footer>
 

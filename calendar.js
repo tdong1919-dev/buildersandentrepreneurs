@@ -61,6 +61,12 @@
       city: "Atlanta", date: inDays(16), time: "6:30 PM ET", location: "Atlanta Tech Village",
       description: "Bring a laptop and a problem. Ship something small by the end of the night.",
       rsvpLink: "", email: "hello@example.com"
+    },
+    {
+      id: "edemo4", title: "DC Founders Meetup", host: "Founders & Builders DC", category: "Meetup",
+      city: "Washington, DC", date: inDays(23), time: "6:00 PM ET", location: "Arlington, VA",
+      description: "Monthly meetup for the DC-area chapter — come meet other local founders and builders.",
+      rsvpLink: "example.com/rsvp", email: "dc@example.com"
     }
   ];
 
@@ -102,7 +108,18 @@
     var searchInput = document.getElementById("searchInput");
     var categorySelect = document.getElementById("categorySelect");
     var citySelect = document.getElementById("citySelect");
+    var viewList = document.getElementById("viewList");
+    var viewCalendar = document.getElementById("viewCalendar");
+    var calendarView = document.getElementById("calendarView");
+    var calendarGrid = document.getElementById("calendarGrid");
+    var calMonthLabel = document.getElementById("calMonthLabel");
+    var calPrev = document.getElementById("calPrev");
+    var calNext = document.getElementById("calNext");
     var all = [];
+    var view = "list";
+    var now = new Date();
+    var calMonth = now.getMonth();
+    var calYear = now.getFullYear();
 
     grid.innerHTML = skeletons(6);
 
@@ -132,6 +149,14 @@
 
     function render() {
       var list = all.filter(matches);
+      if (view === "calendar") {
+        if (empty) empty.hidden = true;
+        grid.innerHTML = "";
+        if (calendarView) calendarView.hidden = false;
+        renderCalendar(list);
+        return;
+      }
+      if (calendarView) calendarView.hidden = true;
       if (!list.length) {
         grid.innerHTML = "";
         if (empty) empty.hidden = false;
@@ -147,9 +172,75 @@
       });
     }
 
+    function renderCalendar(list) {
+      if (!calendarGrid) return;
+      var dateMap = {};
+      list.forEach(function (e) {
+        if (!e.date) return;
+        (dateMap[e.date] = dateMap[e.date] || []).push(e);
+      });
+
+      var first = new Date(calYear, calMonth, 1);
+      var startDow = first.getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var daysInPrevMonth = new Date(calYear, calMonth, 0).getDate();
+      var todayStr = todayISO();
+
+      if (calMonthLabel) {
+        calMonthLabel.textContent = first.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+      }
+
+      var weekdayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var html = weekdayNames.map(function (d) { return '<div class="calendar-grid__weekday">' + d + "</div>"; }).join("");
+
+      for (var i = 0; i < startDow; i++) {
+        html += '<div class="calendar-day calendar-day--other-month"><span class="calendar-day__num">' + (daysInPrevMonth - startDow + i + 1) + "</span></div>";
+      }
+      for (var day = 1; day <= daysInMonth; day++) {
+        var dateStr = calYear + "-" + String(calMonth + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0");
+        var dayEvents = dateMap[dateStr] || [];
+        html += '<div class="calendar-day' + (dateStr === todayStr ? " calendar-day--today" : "") + '"><span class="calendar-day__num">' + day + "</span>"
+          + dayEvents.slice(0, 2).map(function (e) {
+            return '<button type="button" class="calendar-day__event" data-id="' + esc(e.id) + '">' + esc(e.title) + "</button>";
+          }).join("")
+          + (dayEvents.length > 2 ? '<span class="calendar-day__more">+' + (dayEvents.length - 2) + " more</span>" : "")
+          + "</div>";
+      }
+      var trailing = (7 - ((startDow + daysInMonth) % 7)) % 7;
+      for (var t = 1; t <= trailing; t++) {
+        html += '<div class="calendar-day calendar-day--other-month"><span class="calendar-day__num">' + t + "</span></div>";
+      }
+
+      calendarGrid.innerHTML = html;
+      Array.prototype.forEach.call(calendarGrid.querySelectorAll("[data-id]"), function (el) {
+        el.addEventListener("click", function () {
+          var e = all.filter(function (x) { return String(x.id) === el.getAttribute("data-id"); })[0];
+          if (e) openModal(e);
+        });
+      });
+    }
+
+    function switchView(v) {
+      if (view === v) return;
+      view = v;
+      if (viewList) viewList.classList.toggle("is-active", view === "list");
+      if (viewCalendar) viewCalendar.classList.toggle("is-active", view === "calendar");
+      render();
+    }
+
     if (searchInput) searchInput.addEventListener("input", render);
     if (categorySelect) categorySelect.addEventListener("change", render);
     if (citySelect) citySelect.addEventListener("change", render);
+    if (viewList) viewList.addEventListener("click", function () { switchView("list"); });
+    if (viewCalendar) viewCalendar.addEventListener("click", function () { switchView("calendar"); });
+    if (calPrev) calPrev.addEventListener("click", function () {
+      calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; }
+      render();
+    });
+    if (calNext) calNext.addEventListener("click", function () {
+      calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; }
+      render();
+    });
   }
 
   function badges(e) {
