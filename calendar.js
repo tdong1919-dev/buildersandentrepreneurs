@@ -46,7 +46,7 @@
   var SAMPLE = [
     {
       id: "edemo1", title: "Founder Demo Night", host: "Founders & Builders", category: "Demo Day",
-      city: "Boise", date: inDays(9), time: "6:00 PM MT", location: "Trailhead Boise",
+      city: "Boise, ID", date: inDays(9), time: "6:00 PM MT", location: "Trailhead Boise",
       description: "Five founders, five minutes each, real feedback from the room.",
       rsvpLink: "example.com/rsvp", email: "events@example.com"
     },
@@ -58,7 +58,7 @@
     },
     {
       id: "edemo3", title: "Builders Hack Night", host: "Atlanta Founders", category: "Hack Night",
-      city: "Atlanta", date: inDays(16), time: "6:30 PM ET", location: "Atlanta Tech Village",
+      city: "Atlanta, GA", date: inDays(16), time: "6:30 PM ET", location: "Atlanta Tech Village",
       description: "Bring a laptop and a problem. Ship something small by the end of the night.",
       rsvpLink: "", email: "hello@example.com"
     },
@@ -67,6 +67,12 @@
       city: "Washington, DC", date: inDays(23), time: "6:00 PM ET", location: "Arlington, VA",
       description: "Monthly meetup for the DC-area chapter — come meet other local founders and builders.",
       rsvpLink: "example.com/rsvp", email: "dc@example.com"
+    },
+    {
+      id: "edemo5", title: "Madison Founders Coffee", host: "Founders & Builders AL", category: "Meetup",
+      city: "Madison, AL", date: inDays(12), time: "8:30 AM CT", location: "Rocket City Coffee",
+      description: "Casual monthly coffee meetup for the Madison-area founder community.",
+      rsvpLink: "example.com/rsvp", email: "al@example.com"
     }
   ];
 
